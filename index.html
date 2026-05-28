@@ -59,7 +59,7 @@
         .auth-header { text-align: center; margin-bottom: 20px; }
         .auth-header h2 { font-size: 32px; color: #00e5ff; margin-bottom: 10px; font-weight: 700; letter-spacing: 1px; text-shadow: 0 0 15px rgba(0,229,255,0.4); }
         .auth-header p { color: #9096a2; font-size: 15px; }
-        .form-group { display: flex; flex-direction: column; gap: 10px; }
+        .form-group { display: flex; flex-direction: column; gap: 10px; margin-bottom: 10px; }
         .form-group label { font-size: 14px; color: #9096a2; }
         .form-group input { background-color: #111625; border: 1px solid #232d42; padding: 18px; border-radius: 16px; color: white; font-size: 16px; outline: none; }
         .form-group input:focus { border-color: #00e5ff; }
@@ -70,11 +70,11 @@
         .auth-switch span { color: #00e5ff; cursor: pointer; font-weight: bold; }
 
         /* Dashboard Global */
-        .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+        .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; border-bottom: 1px solid #1f2633; padding-bottom: 10px; }
         .profile { display: flex; align-items: center; gap: 12px; }
         .avatar { width: 42px; height: 42px; background-color: #111625; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-weight: bold; color: #00e5ff; font-size: 16px; border: 1px solid #232d42; }
         .btn-logout { background: none; border: none; color: #ff3b30; font-size: 13px; cursor: pointer; text-align: left; }
-        .section-title { font-size: 20px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; text-align: center; color: #ffffff; margin-bottom: 10px; }
+        .section-title { font-size: 20px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; text-align: center; color: #ffffff; margin-bottom: 15px; }
 
         /* Tarjetas de Balance */
         .balance-card { background: linear-gradient(135deg, #111625 0%, #070a14 100%); padding: 25px; border-radius: 24px; border: 1px solid #232d42; text-align: center; margin-bottom: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.5); }
@@ -84,7 +84,7 @@
         
         .info-box { background-color: #111625; padding: 16px; border-radius: 16px; border: 1px solid #1f2633; display: flex; flex-direction: column; gap: 5px; }
 
-        /* 🚀 INTERFAZ DE PLANES EXACTA DE TU IMAGEN */
+        /* 🚀 INTERFAZ DE PLANES DE LA IMAGEN (image_2b90fc.jpg) */
         .planes-wrapper { display: flex; flex-direction: column; gap: 12px; }
         .plan-card {
             display: flex;
@@ -95,7 +95,6 @@
             border-radius: 14px;
         }
 
-        /* Bordes de colores de la imagen */
         .plan-vip0 { border: 1px solid #00c8ff; border-left: 5px solid #00c8ff; }
         .plan-vip1 { border: 1px solid #00e676; border-left: 5px solid #00e676; }
         .plan-vip2 { border: 1px solid #aa00ff; border-left: 5px solid #aa00ff; }
@@ -135,10 +134,15 @@
         }
         .btn-renew:active { background-color: rgba(255,255,255,0.2); }
 
-        /* SECCIÓN WALLET (NUEVA) */
+        /* SECCIÓN WALLET */
         .wallet-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 10px; }
         .btn-wallet-action { background-color: #111625; border: 1px solid #232d42; color: #ffffff; padding: 15px; border-radius: 16px; cursor: pointer; font-weight: 600; font-size: 14px; display: flex; align-items: center; justify-content: center; gap: 8px; }
         .btn-wallet-action:active { background-color: #1f2633; }
+
+        /* SECCIÓN PERFIL (NUEVA) */
+        .profile-item { background-color: #111625; border: 1px solid #232d42; padding: 16px; border-radius: 16px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+        .profile-item span:first-child { color: #9096a2; font-size: 14px; }
+        .profile-item span:last-child { font-weight: 600; font-size: 16px; color: #ffffff; }
 
         /* BARRA DE NAVEGACIÓN FIJA ABAJO */
         .bottom-nav {
@@ -148,7 +152,7 @@
             border-bottom-left-radius: 32px; border-bottom-right-radius: 32px;
             z-index: 10;
         }
-        .nav-item { background: none; border: none; color: #9096a2; font-size: 12px; display: flex; flex-direction: column; align-items: center; gap: 4px; cursor: pointer; }
+        .nav-item { background: none; border: none; color: #9096a2; font-size: 11px; display: flex; flex-direction: column; align-items: center; gap: 4px; cursor: pointer; flex: 1; }
         .nav-item.active { color: #00e5ff; font-weight: bold; }
 
         @media (max-width: 500px) {
@@ -162,23 +166,25 @@
 
     <div class="app-container">
 
-        <div id="screen-login" class="screen active auth-container">
+        <!-- SCREEN 1: LOGIN -->
+        <div id="screen-login" class="screen auth-container">
             <div class="auth-header">
                 <h2>NEURASPACE<span style="color:#ffffff">X</span></h2>
                 <p>¡BIENVENIDOS!</p>
             </div>
             <div class="form-group">
                 <label>Correo Electrónico</label>
-                <input type="email" id="login-email" placeholder="nombre@correo.com">
+                <input type="email" id="login-email" value="demo@neuraspace.com">
             </div>
             <div class="form-group">
                 <label>Contraseña</label>
-                <input type="password" id="login-password" placeholder="••••••••">
+                <input type="password" id="login-password" value="123456">
             </div>
             <button class="btn-primary" onclick="procesarLogin()">INGRESAR</button>
             <p class="auth-switch">¿Eres nuevo? <span onclick="cambiarPantalla('screen-register')">Regístrate aquí</span></p>
         </div>
 
+        <!-- SCREEN 2: REGISTRO -->
         <div id="screen-register" class="screen auth-container">
             <div class="auth-header">
                 <h2>CREAR CUENTA</h2>
@@ -196,21 +202,24 @@
             <p class="auth-switch">¿Ya tienes cuenta? <span onclick="cambiarPantalla('screen-login')">Inicia Sesión</span></p>
         </div>
 
-        <div id="screen-dashboard" class="screen">
+        <!-- SCREEN 3: DASHBOARD INTERNO (ACTIVO POR DEFECTO PARA EVITAR TRABAS) -->
+        <div id="screen-dashboard" class="screen active">
             
             <div class="scroll-content">
                 
+                <!-- Encabezado de la App -->
                 <div class="header">
                     <div class="profile">
-                        <div class="avatar" id="user-avatar">U</div>
+                        <div class="avatar" id="user-avatar">N</div>
                         <div>
-                            <h3 style="font-size: 15px; font-weight: 600;" id="user-display">Usuario</h3>
+                            <h3 style="font-size: 15px; font-weight: 600;" id="user-display">neura_user</h3>
                             <button class="btn-logout" onclick="procesarLogout()">Cerrar sesión</button>
                         </div>
                     </div>
                     <span style="font-size: 22px;">🔔</span>
                 </div>
 
+                <!-- PESTAÑA 1: INICIO -->
                 <div id="tab-home" class="tab-content active">
                     <div class="balance-card">
                         <p class="balance-title">Mi Saldo Disponible</p>
@@ -227,10 +236,12 @@
                     </div>
                 </div>
 
+                <!-- PESTAÑA 2: PLANES (REPLICADO DE IMAGE_2B90FC.JPG) -->
                 <div id="tab-invest" class="tab-content">
                     <h3 class="section-title">Planes</h3>
                     <div class="planes-wrapper">
                         
+                        <!-- VIP 0 -->
                         <div class="plan-card plan-vip0">
                             <div class="plan-col"><div class="plan-amount">500.00</div></div>
                             <div class="plan-col"><span class="vip-badge badge-v0">Vip 0</span></div>
@@ -245,6 +256,7 @@
                             </div>
                         </div>
 
+                        <!-- VIP 1 -->
                         <div class="plan-card plan-vip1">
                             <div class="plan-col"><div class="plan-amount">750.00</div></div>
                             <div class="plan-col"><span class="vip-badge badge-v1">Vip 1</span></div>
@@ -259,6 +271,7 @@
                             </div>
                         </div>
 
+                        <!-- VIP 2 -->
                         <div class="plan-card plan-vip2">
                             <div class="plan-col"><div class="plan-amount">1,000.00</div></div>
                             <div class="plan-col"><span class="vip-badge badge-v2">Vip 2</span></div>
@@ -273,6 +286,7 @@
                             </div>
                         </div>
 
+                        <!-- VIP 3 -->
                         <div class="plan-card plan-vip3">
                             <div class="plan-col"><div class="plan-amount">1,500.00</div></div>
                             <div class="plan-col"><span class="vip-badge badge-v3">Vip 3</span></div>
@@ -287,6 +301,7 @@
                             </div>
                         </div>
 
+                        <!-- VIP 4 -->
                         <div class="plan-card plan-vip4">
                             <div class="plan-col"><div class="plan-amount">2,500.00</div></div>
                             <div class="plan-col"><span class="vip-badge badge-v4">Vip 4</span></div>
@@ -301,6 +316,7 @@
                             </div>
                         </div>
 
+                        <!-- VIP 5 -->
                         <div class="plan-card plan-vip5">
                             <div class="plan-col"><div class="plan-amount">5,000.00</div></div>
                             <div class="plan-col"><span class="vip-badge badge-v5">Vip 5</span></div>
@@ -318,6 +334,7 @@
                     </div>
                 </div>
 
+                <!-- PESTAÑA 3: WALLET -->
                 <div id="tab-wallet" class="tab-content">
                     <h3 class="section-title">Mi Wallet</h3>
                     <div class="balance-card" style="background: linear-gradient(135deg, #111c2e 0%, #060913 100%); border-color: #00e5ff;">
@@ -327,27 +344,54 @@
                     </div>
 
                     <div class="wallet-actions">
-                        <button class="btn-wallet-action" onclick="simularDeposito()">📥 Depreciar / Depositar</button>
+                        <button class="btn-wallet-action" onclick="simularDeposito()">📥 Depositar</button>
                         <button class="btn-wallet-action" onclick="simularRetiro()">📤 Retirar Fondos</button>
                     </div>
+                </div>
 
-                    <div class="info-box" style="margin-top: 10px;">
-                        <h4 style="font-size: 13px; color: #9096a2;">Historial de Actividad</h4>
-                        <p style="font-size: 12px; color: #0ecb81; margin-top: 5px;">✓ +S/ 10.00 Bono de registro completado</p>
+                <!-- PESTAÑA 4: PERFIL (NUEVA CON DATOS DINÁMICOS) -->
+                <div id="tab-profile" class="tab-content">
+                    <h3 class="section-title">Mi Perfil</h3>
+                    
+                    <div style="text-align: center; margin-bottom: 20px;">
+                        <div class="avatar" id="big-avatar" style="width: 70px; height: 70px; font-size: 28px; margin: 0 auto 10px auto;">N</div>
+                        <h2 id="profile-name" style="font-size: 20px;">neura_user</h2>
+                        <p style="color: #00e5ff; font-size: 13px; font-weight: 600; margin-top: 3px;">Usuario Verificado</p>
+                    </div>
+
+                    <div class="profile-item">
+                        <span>ID de Usuario</span>
+                        <span id="profile-id">NSX-84920</span>
+                    </div>
+                    <div class="profile-item">
+                        <span>Saldo Actual</span>
+                        <span class="class-balance-text" style="color: #0ecb81;">S/ 10.00</span>
+                    </div>
+                    <div class="profile-item">
+                        <span>Rango de Cuenta</span>
+                        <span style="color: #ffea00;">Miembro VIP</span>
+                    </div>
+                    <div class="profile-item">
+                        <span>País / Región</span>
+                        <span>Perú (PEN)</span>
                     </div>
                 </div>
 
             </div>
 
+            <!-- MENÚ INFERIOR DE 4 BOTONES -->
             <div class="bottom-nav">
                 <button class="nav-item active" id="btn-nav-home" onclick="cambiarPestana('tab-home', 'btn-nav-home')">
-                    <span style="font-size: 20px;">🏠</span>Inicio
+                    <span style="font-size: 18px;">🏠</span>Inicio
                 </button>
                 <button class="nav-item" id="btn-nav-invest" onclick="cambiarPestana('tab-invest', 'btn-nav-invest')">
-                    <span style="font-size: 20px;">🚀</span>Planes
+                    <span style="font-size: 18px;">🚀</span>Planes
                 </button>
                 <button class="nav-item" id="btn-nav-wallet" onclick="cambiarPestana('tab-wallet', 'btn-nav-wallet')">
-                    <span style="font-size: 20px;">💼</span>Mi Wallet
+                    <span style="font-size: 18px;">💼</span>Wallet
+                </button>
+                <button class="nav-item" id="btn-nav-profile" onclick="cambiarPestana('tab-profile', 'btn-nav-profile')">
+                    <span style="font-size: 18px;">👤</span>Perfil
                 </button>
             </div>
 
@@ -356,11 +400,17 @@
     </div>
 
     <script>
-        // Variables globales del sistema local
+        // Sistema Operativo 100% Autónomo
         let saldoDisponible = 10.00;
-        let correoUsuarioLogueado = "";
+        let correoUsuarioLogueado = "demo@neuraspace.com";
 
-        // Actualizar visualmente todos los marcadores de saldo en la App
+        // Genera un ID de usuario único al cargar
+        document.addEventListener("DOMContentLoaded", () => {
+            const randomID = "NSX-" + Math.floor(10000 + Math.random() * 90000);
+            document.getElementById('profile-id').innerText = randomID;
+            refrescarSaldosHTML();
+        });
+
         function refrescarSaldosHTML() {
             const elementosSaldo = document.querySelectorAll('.class-balance-text');
             elementosSaldo.forEach(elem => {
@@ -368,13 +418,11 @@
             });
         }
 
-        // Navegación entre Login y Dashboard
         function cambiarPantalla(screenId) {
             document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
             document.getElementById(screenId).classList.add('active');
         }
 
-        // Navegación entre las pestañas del menú inferior
         function cambiarPestana(tabId, btnId) {
             document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
             document.querySelectorAll('.nav-item').forEach(b => b.classList.remove('active'));
@@ -382,98 +430,83 @@
             document.getElementById(btnId).classList.add('active');
         }
 
-        // FUNCIONALIDAD: Registro Local Automático
         function procesarRegistro() {
             const email = document.getElementById('register-email').value;
             const pass = document.getElementById('register-password').value;
 
-            if (!email || !pass) {
-                alert("Por favor, rellena todos los campos.");
-                return;
-            }
-            if (pass.length < 6) {
-                alert("La contraseña debe tener mínimo 6 caracteres.");
-                return;
-            }
-
-            correoUsuarioLogueado = email;
-            saldoDisponible = 10.00; // Asigna bono
+            if (!email || !pass) { alert("Por favor, llena todos los campos."); return; }
             
-            // Configurar perfil
-            document.getElementById('user-display').innerText = email.split('@')[0];
-            document.getElementById('user-avatar').innerText = email.charAt(0).toUpperCase();
+            correoUsuarioLogueado = email;
+            saldoDisponible = 10.00; 
+            
+            const nombreMuestra = email.split('@')[0];
+            const inicial = email.charAt(0).toUpperCase();
+
+            document.getElementById('user-display').innerText = nombreMuestra;
+            document.getElementById('profile-name').innerText = nombreMuestra;
+            document.getElementById('user-avatar').innerText = inicial;
+            document.getElementById('big-avatar').innerText = inicial;
             
             refrescarSaldosHTML();
-            alert("¡Cuenta creada correctamente! Se te otorgó tu bono de 10 Soles.");
-            
+            alert("¡Registro Exitoso! Bienvenido con bono de S/ 10.00.");
             cambiarPantalla('screen-dashboard');
             cambiarPestana('tab-home', 'btn-nav-home');
         }
 
-        // FUNCIONALIDAD: Login Local Automático
         function procesarLogin() {
             const email = document.getElementById('login-email').value;
-            const pass = document.getElementById('login-password').value;
-
-            if (!email || !pass) {
-                alert("Por favor, ingresa tus datos completos.");
-                return;
-            }
+            if (!email) { alert("Ingresa tu correo."); return; }
 
             correoUsuarioLogueado = email;
-            document.getElementById('user-display').innerText = email.split('@')[0];
-            document.getElementById('user-avatar').innerText = email.charAt(0).toUpperCase();
+            const nombreMuestra = email.split('@')[0];
+            const inicial = email.charAt(0).toUpperCase();
+
+            document.getElementById('user-display').innerText = nombreMuestra;
+            document.getElementById('profile-name').innerText = nombreMuestra;
+            document.getElementById('user-avatar').innerText = inicial;
+            document.getElementById('big-avatar').innerText = inicial;
             
             refrescarSaldosHTML();
             cambiarPantalla('screen-dashboard');
             cambiarPestana('tab-home', 'btn-nav-home');
         }
 
-        // FUNCIONALIDAD: Compra de Planes Activa
         function comprarPlan(costo, nombrePlan) {
             if (saldoDisponible >= costo) {
                 saldoDisponible -= costo;
                 refrescarSaldosHTML();
                 document.getElementById('bonus-text').innerText = `Plan ${nombrePlan} Activo`;
-                alert(`¡Éxito! Has renovado el plan ${nombrePlan}. Se descontaron S/ ${costo.toFixed(2)} de tu cuenta.`);
+                alert(`¡Éxito! Plan ${nombrePlan} renovado. S/ ${costo.toFixed(2)} deducidos.`);
             } else {
-                alert(`Saldo Insuficiente.\nEl plan ${nombrePlan} requiere S/ ${costo.toFixed(2)} y tu saldo actual es de S/ ${saldoDisponible.toFixed(2)}.`);
+                alert(`Saldo Insuficiente.\nEl plan requiere S/ ${costo.toFixed(2)} y tienes S/ ${saldoDisponible.toFixed(2)}.`);
             }
         }
 
-        // FUNCIONALIDAD DE WALLET: Simular Depósito
         function simularDeposito() {
-            const monto = prompt("Ingresa el monto en Soles que deseas depositar (Simulación):", "1000");
+            const monto = prompt("Monto a depositar en Soles:", "1000");
             const montoNum = parseFloat(monto);
             if (!isNaN(montoNum) && montoNum > 0) {
                 saldoDisponible += montoNum;
                 refrescarSaldosHTML();
-                alert(`Simulación exitosa: Se han depositado S/ ${montoNum.toFixed(2)} a tu billetera.`);
+                alert(`S/ ${montoNum.toFixed(2)} agregados con éxito.`);
             }
         }
 
-        // FUNCIONALIDAD DE WALLET: Simular Retiro
         function simularRetiro() {
-            const monto = prompt("Ingresa el monto en Soles que deseas retirar:", "10");
+            const monto = prompt("Monto a retirar en Soles:", "50");
             const montoNum = parseFloat(monto);
             if (!isNaN(montoNum) && montoNum > 0) {
                 if (saldoDisponible >= montoNum) {
                     saldoDisponible -= montoNum;
                     refrescarSaldosHTML();
-                    alert(`Solicitud aprobada: Se han retirado S/ ${montoNum.toFixed(2)} de forma simulada.`);
+                    alert(`Retiro de S/ ${montoNum.toFixed(2)} procesado.`);
                 } else {
-                    alert("Saldo insuficiente para efectuar el retiro.");
+                    alert("Saldo insuficiente.");
                 }
             }
         }
 
-        // Cerrar Sesión
         function procesarLogout() {
-            correoUsuarioLogueado = "";
-            document.getElementById('login-email').value = "";
-            document.getElementById('login-password').value = "";
-            document.getElementById('register-email').value = "";
-            document.getElementById('register-password').value = "";
             cambiarPantalla('screen-login');
         }
     </script>
