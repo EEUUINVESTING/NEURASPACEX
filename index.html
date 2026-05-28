@@ -55,16 +55,16 @@
         .tab-content.active { display: flex; }
 
         /* Login y Registro */
-        .auth-container { padding: 20px; display: flex; flex-direction: column; gap: 20px; }
-        .auth-header { text-align: center; margin-top: 50px; margin-bottom: 20px; }
-        .auth-header h2 { font-size: 32px; color: #00e5ff; margin-bottom: 10px; font-weight: 700; letter-spacing: 1px; }
+        .auth-container { padding: 20px; display: flex; flex-direction: column; gap: 20px; justify-content: center;}
+        .auth-header { text-align: center; margin-bottom: 20px; }
+        .auth-header h2 { font-size: 32px; color: #00e5ff; margin-bottom: 10px; font-weight: 700; letter-spacing: 1px; text-shadow: 0 0 15px rgba(0,229,255,0.4); }
         .auth-header p { color: #9096a2; font-size: 15px; }
         .form-group { display: flex; flex-direction: column; gap: 10px; }
         .form-group label { font-size: 14px; color: #9096a2; }
         .form-group input { background-color: #111625; border: 1px solid #232d42; padding: 18px; border-radius: 16px; color: white; font-size: 16px; outline: none; }
         .form-group input:focus { border-color: #00e5ff; }
         
-        .btn-primary { background: linear-gradient(90deg, #00e5ff, #0088ff); color: #ffffff; border: none; padding: 18px; border-radius: 16px; font-size: 16px; font-weight: bold; cursor: pointer; margin-top: 10px; box-shadow: 0 4px 15px rgba(0,229,255,0.2); }
+        .btn-primary { background: linear-gradient(90deg, #00e5ff, #0088ff); color: #ffffff; border: none; padding: 18px; border-radius: 16px; font-size: 16px; font-weight: bold; cursor: pointer; margin-top: 10px; box-shadow: 0 4px 15px rgba(0,229,255,0.2); width: 100%; text-transform: uppercase;}
         .btn-primary:active { opacity: 0.9; }
         .auth-switch { text-align: center; font-size: 15px; color: #9096a2; margin-top: 20px; }
         .auth-switch span { color: #00e5ff; cursor: pointer; font-weight: bold; }
@@ -76,15 +76,15 @@
         .btn-logout { background: none; border: none; color: #ff3b30; font-size: 13px; cursor: pointer; text-align: left; }
         .section-title { font-size: 20px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; text-align: center; color: #ffffff; margin-bottom: 10px; }
 
-        /* Pestaña Inicio */
-        .balance-card { background: linear-gradient(135deg, #111625 0%, #070a14 100%); padding: 25px; border-radius: 24px; border: 1px solid #232d42; text-align: center; margin-bottom: 15px; }
+        /* Tarjetas de Balance */
+        .balance-card { background: linear-gradient(135deg, #111625 0%, #070a14 100%); padding: 25px; border-radius: 24px; border: 1px solid #232d42; text-align: center; margin-bottom: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.5); }
         .balance-title { font-size: 12px; color: #9096a2; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
         .balance-amount { font-size: 38px; font-weight: bold; color: #ffffff; }
         .balance-profit { font-size: 14px; color: #00e676; margin-top: 4px; }
         
         .info-box { background-color: #111625; padding: 16px; border-radius: 16px; border: 1px solid #1f2633; display: flex; flex-direction: column; gap: 5px; }
 
-        /* 🚀 INTERFAZ DE PLANES DE TU IMAGEN */
+        /* 🚀 INTERFAZ DE PLANES EXACTA DE TU IMAGEN */
         .planes-wrapper { display: flex; flex-direction: column; gap: 12px; }
         .plan-card {
             display: flex;
@@ -95,7 +95,7 @@
             border-radius: 14px;
         }
 
-        /* Bordes de colores idénticos a la imagen */
+        /* Bordes de colores de la imagen */
         .plan-vip0 { border: 1px solid #00c8ff; border-left: 5px solid #00c8ff; }
         .plan-vip1 { border: 1px solid #00e676; border-left: 5px solid #00e676; }
         .plan-vip2 { border: 1px solid #aa00ff; border-left: 5px solid #aa00ff; }
@@ -133,7 +133,12 @@
             gap: 2px;
             text-transform: uppercase;
         }
-        .btn-renew:active { background-color: rgba(255,255,255,0.1); }
+        .btn-renew:active { background-color: rgba(255,255,255,0.2); }
+
+        /* SECCIÓN WALLET (NUEVA) */
+        .wallet-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 10px; }
+        .btn-wallet-action { background-color: #111625; border: 1px solid #232d42; color: #ffffff; padding: 15px; border-radius: 16px; cursor: pointer; font-weight: 600; font-size: 14px; display: flex; align-items: center; justify-content: center; gap: 8px; }
+        .btn-wallet-action:active { background-color: #1f2633; }
 
         /* BARRA DE NAVEGACIÓN FIJA ABAJO */
         .bottom-nav {
@@ -170,8 +175,8 @@
                 <label>Contraseña</label>
                 <input type="password" id="login-password" placeholder="••••••••">
             </div>
-            <button class="btn-primary" onclick="login()">INGRESAR</button>
-            <p class="auth-switch">¿Eres nuevo? <span onclick="switchScreen('screen-register')">Regístrate aquí</span></p>
+            <button class="btn-primary" onclick="procesarLogin()">INGRESAR</button>
+            <p class="auth-switch">¿Eres nuevo? <span onclick="cambiarPantalla('screen-register')">Regístrate aquí</span></p>
         </div>
 
         <div id="screen-register" class="screen auth-container">
@@ -187,8 +192,8 @@
                 <label>Contraseña</label>
                 <input type="password" id="register-password" placeholder="Mínimo 6 caracteres">
             </div>
-            <button class="btn-primary" onclick="register()">REGISTRARSE</button>
-            <p class="auth-switch">¿Ya tienes cuenta? <span onclick="switchScreen('screen-login')">Inicia Sesión</span></p>
+            <button class="btn-primary" onclick="procesarRegistro()">REGISTRARSE</button>
+            <p class="auth-switch">¿Ya tienes cuenta? <span onclick="cambiarPantalla('screen-login')">Inicia Sesión</span></p>
         </div>
 
         <div id="screen-dashboard" class="screen">
@@ -200,21 +205,25 @@
                         <div class="avatar" id="user-avatar">U</div>
                         <div>
                             <h3 style="font-size: 15px; font-weight: 600;" id="user-display">Usuario</h3>
-                            <button class="btn-logout" onclick="logout()">Cerrar sesión</button>
+                            <button class="btn-logout" onclick="procesarLogout()">Cerrar sesión</button>
                         </div>
                     </div>
-                    <span style="font-size: 22px; cursor: pointer;">🔔</span>
+                    <span style="font-size: 22px;">🔔</span>
                 </div>
 
                 <div id="tab-home" class="tab-content active">
                     <div class="balance-card">
                         <p class="balance-title">Mi Saldo Disponible</p>
-                        <div class="balance-amount" id="main-balance">S/ 10.00</div>
+                        <div class="balance-amount class-balance-text">S/ 10.00</div>
                         <p class="balance-profit" id="bonus-text">Bono de 10 Soles Activo</p>
                     </div>
                     <div class="info-box">
-                        <h4 style="font-size: 14px; color:#00e5ff; display:flex; align-items:center; gap:5px;">⚡ Depósitos y Retiros</h4>
-                        <p style="font-size: 12px; color:#9096a2; margin-top:2px;">Depósitos y retiros instantáneos simulados de forma correcta.</p>
+                        <h4 style="font-size: 14px; color:#00e5ff;">🎁 Bono de bienvenida</h4>
+                        <p style="font-size: 12px; color:#9096a2; margin-top:2px;">Se han asignado 10 soles automáticamente a todos nuestros nuevos usuarios.</p>
+                    </div>
+                    <div class="info-box" style="margin-top:5px;">
+                        <h4 style="font-size: 14px; color:#ffea00;">⚡ Depósitos y Retiros</h4>
+                        <p style="font-size: 12px; color:#9096a2; margin-top:2px;">Procesos instantáneos habilitados para la simulación financiera.</p>
                     </div>
                 </div>
 
@@ -309,14 +318,36 @@
                     </div>
                 </div>
 
+                <div id="tab-wallet" class="tab-content">
+                    <h3 class="section-title">Mi Wallet</h3>
+                    <div class="balance-card" style="background: linear-gradient(135deg, #111c2e 0%, #060913 100%); border-color: #00e5ff;">
+                        <p class="balance-title">Balance Total de la Billetera</p>
+                        <div class="balance-amount class-balance-text" style="color: #00e5ff;">S/ 10.00</div>
+                        <p style="font-size: 12px; color: #9096a2; margin-top: 5px;">Moneda: Soles Peruanos (PEN)</p>
+                    </div>
+
+                    <div class="wallet-actions">
+                        <button class="btn-wallet-action" onclick="simularDeposito()">📥 Depreciar / Depositar</button>
+                        <button class="btn-wallet-action" onclick="simularRetiro()">📤 Retirar Fondos</button>
+                    </div>
+
+                    <div class="info-box" style="margin-top: 10px;">
+                        <h4 style="font-size: 13px; color: #9096a2;">Historial de Actividad</h4>
+                        <p style="font-size: 12px; color: #0ecb81; margin-top: 5px;">✓ +S/ 10.00 Bono de registro completado</p>
+                    </div>
+                </div>
+
             </div>
 
             <div class="bottom-nav">
-                <button class="nav-item active" id="btn-nav-home" onclick="switchTab('tab-home', 'btn-nav-home')">
+                <button class="nav-item active" id="btn-nav-home" onclick="cambiarPestana('tab-home', 'btn-nav-home')">
                     <span style="font-size: 20px;">🏠</span>Inicio
                 </button>
-                <button class="nav-item" id="btn-nav-invest" onclick="switchTab('tab-invest', 'btn-nav-invest')">
+                <button class="nav-item" id="btn-nav-invest" onclick="cambiarPestana('tab-invest', 'btn-nav-invest')">
                     <span style="font-size: 20px;">🚀</span>Planes
+                </button>
+                <button class="nav-item" id="btn-nav-wallet" onclick="cambiarPestana('tab-wallet', 'btn-nav-wallet')">
+                    <span style="font-size: 20px;">💼</span>Mi Wallet
                 </button>
             </div>
 
@@ -324,91 +355,127 @@
 
     </div>
 
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } 
-        from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+    <script>
+        // Variables globales del sistema local
+        let saldoDisponible = 10.00;
+        let correoUsuarioLogueado = "";
 
-        // ⚠️ IMPORTANTE: COLOCA AQUÍ TUS LLAVES REALES DE FIREBASE PARA QUE GRABE EN TU BASE DE DATOS
-        const firebaseConfig = {
-            apiKey: "TU_API_KEY",
-            authDomain: "TU_AUTH_DOMAIN",
-            projectId: "TU_PROJECT_ID",
-            storageBucket: "TU_STORAGE_BUCKET",
-            messagingSenderId: "TU_MESSAGING_SENDER_ID",
-            appId: "TU_APP_ID"
-        };
-
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
-
-        // Saldo inicial simulado por sesión
-        let saldoUsuario = 10.00; 
-
-        function actualizarPantallaSaldo() {
-            document.getElementById('main-balance').innerText = `S/ ${saldoUsuario.toFixed(2)}`;
+        // Actualizar visualmente todos los marcadores de saldo en la App
+        function refrescarSaldosHTML() {
+            const elementosSaldo = document.querySelectorAll('.class-balance-text');
+            elementosSaldo.forEach(elem => {
+                elem.innerText = `S/ ${saldoDisponible.toLocaleString('es-PE', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+            });
         }
 
-        window.switchScreen = function(screenId) {
+        // Navegación entre Login y Dashboard
+        function cambiarPantalla(screenId) {
             document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
             document.getElementById(screenId).classList.add('active');
         }
 
-        window.switchTab = function(tabId, btnId) {
+        // Navegación entre las pestañas del menú inferior
+        function cambiarPestana(tabId, btnId) {
             document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
             document.querySelectorAll('.nav-item').forEach(b => b.classList.remove('active'));
             document.getElementById(tabId).classList.add('active');
             document.getElementById(btnId).classList.add('active');
         }
 
-        // Sistema Operacional de los Planes (Simulación activa)
-        window.comprarPlan = function(costo, nombrePlan) {
-            if (saldoUsuario >= costo) {
-                saldoUsuario -= costo;
-                actualizarPantallaSaldo();
-                document.getElementById('bonus-text').innerText = `Plan ${nombrePlan} Activo`;
-                alert(`¡Plan ${nombrePlan} renovado con éxito! Se descontaron S/ ${costo}.`);
-            } else {
-                alert(`Saldo insuficiente. El plan ${nombrePlan} cuesta S/ ${costo} y solo tienes S/ ${saldoUsuario.toFixed(2)}.`);
-            }
-        }
-
-        // Lógica interactiva de los botones de registro
-        window.register = function() {
+        // FUNCIONALIDAD: Registro Local Automático
+        function procesarRegistro() {
             const email = document.getElementById('register-email').value;
-            const password = document.getElementById('register-password').value;
-            
-            if(!email || !password) { alert("Por favor, llena todos los campos."); return; }
+            const pass = document.getElementById('register-password').value;
 
-            createUserWithEmailAndPassword(auth, email, password)
-                .then(() => { alert("¡Usuario registrado con éxito! Recibiste un bono de 10 soles."); })
-                .catch((err) => alert("Error al registrar: " + err.message));
-        }
-
-        window.login = function() {
-            const email = document.getElementById('login-email').value;
-            const password = document.getElementById('login-password').value;
-
-            if(!email || !password) { alert("Ingresa tu correo y contraseña."); return; }
-
-            signInWithEmailAndPassword(auth, email, password)
-                .catch((err) => alert("Error de acceso: " + err.message));
-        }
-
-        window.logout = function() { signOut(auth); }
-
-        onAuthStateChanged(auth, (user) => {
-            if (user) {
-                document.getElementById('user-display').innerText = user.email.split('@')[0];
-                document.getElementById('user-avatar').innerText = user.email.charAt(0).toUpperCase();
-                saldoUsuario = 10.00; // Asigna el bono inicial de 10 soles
-                actualizarPantallaSaldo();
-                switchScreen('screen-dashboard');
-                switchTab('tab-home', 'btn-nav-home');
-            } else {
-                switchScreen('screen-login');
+            if (!email || !pass) {
+                alert("Por favor, rellena todos los campos.");
+                return;
             }
-        });
+            if (pass.length < 6) {
+                alert("La contraseña debe tener mínimo 6 caracteres.");
+                return;
+            }
+
+            correoUsuarioLogueado = email;
+            saldoDisponible = 10.00; // Asigna bono
+            
+            // Configurar perfil
+            document.getElementById('user-display').innerText = email.split('@')[0];
+            document.getElementById('user-avatar').innerText = email.charAt(0).toUpperCase();
+            
+            refrescarSaldosHTML();
+            alert("¡Cuenta creada correctamente! Se te otorgó tu bono de 10 Soles.");
+            
+            cambiarPantalla('screen-dashboard');
+            cambiarPestana('tab-home', 'btn-nav-home');
+        }
+
+        // FUNCIONALIDAD: Login Local Automático
+        function procesarLogin() {
+            const email = document.getElementById('login-email').value;
+            const pass = document.getElementById('login-password').value;
+
+            if (!email || !pass) {
+                alert("Por favor, ingresa tus datos completos.");
+                return;
+            }
+
+            correoUsuarioLogueado = email;
+            document.getElementById('user-display').innerText = email.split('@')[0];
+            document.getElementById('user-avatar').innerText = email.charAt(0).toUpperCase();
+            
+            refrescarSaldosHTML();
+            cambiarPantalla('screen-dashboard');
+            cambiarPestana('tab-home', 'btn-nav-home');
+        }
+
+        // FUNCIONALIDAD: Compra de Planes Activa
+        function comprarPlan(costo, nombrePlan) {
+            if (saldoDisponible >= costo) {
+                saldoDisponible -= costo;
+                refrescarSaldosHTML();
+                document.getElementById('bonus-text').innerText = `Plan ${nombrePlan} Activo`;
+                alert(`¡Éxito! Has renovado el plan ${nombrePlan}. Se descontaron S/ ${costo.toFixed(2)} de tu cuenta.`);
+            } else {
+                alert(`Saldo Insuficiente.\nEl plan ${nombrePlan} requiere S/ ${costo.toFixed(2)} y tu saldo actual es de S/ ${saldoDisponible.toFixed(2)}.`);
+            }
+        }
+
+        // FUNCIONALIDAD DE WALLET: Simular Depósito
+        function simularDeposito() {
+            const monto = prompt("Ingresa el monto en Soles que deseas depositar (Simulación):", "1000");
+            const montoNum = parseFloat(monto);
+            if (!isNaN(montoNum) && montoNum > 0) {
+                saldoDisponible += montoNum;
+                refrescarSaldosHTML();
+                alert(`Simulación exitosa: Se han depositado S/ ${montoNum.toFixed(2)} a tu billetera.`);
+            }
+        }
+
+        // FUNCIONALIDAD DE WALLET: Simular Retiro
+        function simularRetiro() {
+            const monto = prompt("Ingresa el monto en Soles que deseas retirar:", "10");
+            const montoNum = parseFloat(monto);
+            if (!isNaN(montoNum) && montoNum > 0) {
+                if (saldoDisponible >= montoNum) {
+                    saldoDisponible -= montoNum;
+                    refrescarSaldosHTML();
+                    alert(`Solicitud aprobada: Se han retirado S/ ${montoNum.toFixed(2)} de forma simulada.`);
+                } else {
+                    alert("Saldo insuficiente para efectuar el retiro.");
+                }
+            }
+        }
+
+        // Cerrar Sesión
+        function procesarLogout() {
+            correoUsuarioLogueado = "";
+            document.getElementById('login-email').value = "";
+            document.getElementById('login-password').value = "";
+            document.getElementById('register-email').value = "";
+            document.getElementById('register-password').value = "";
+            cambiarPantalla('screen-login');
+        }
     </script>
 </body>
 </html>
