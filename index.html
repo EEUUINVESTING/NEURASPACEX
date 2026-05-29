@@ -605,7 +605,8 @@ La aplicación oficial llegará a Play Store y App Store el <b>25 de Junio de 20
 </h2>
 
 <p>
-Más de <b>600 usuarios</b> ya se registraron en NeuraSpaceX.
+Más de <b>600 usuarios</b> registrados.
+Sistema de referidos activo con comisión del <b>15%</b>.
 </p>
 
 </div>
@@ -658,6 +659,54 @@ Ganancia diaria S/73.70
 
 <button class="buy-btn"
 onclick="comprarPlan(1000,'VIP 2')">
+Comprar
+</button>
+</div>
+
+<div class="plan">
+<div>
+<div class="plan-title">
+VIP 3 - S/2500
+</div>
+<div class="plan-profit">
+Ganancia diaria S/123.70
+</div>
+</div>
+
+<button class="buy-btn"
+onclick="comprarPlan(2500,'VIP 3')">
+Comprar
+</button>
+</div>
+
+<div class="plan">
+<div>
+<div class="plan-title">
+VIP 4 - S/5000
+</div>
+<div class="plan-profit">
+Ganancia diaria S/223.70
+</div>
+</div>
+
+<button class="buy-btn"
+onclick="comprarPlan(5000,'VIP 4')">
+Comprar
+</button>
+</div>
+
+<div class="plan">
+<div>
+<div class="plan-title">
+VIP 5 - S/10000
+</div>
+<div class="plan-profit">
+Ganancia diaria S/523.70
+</div>
+</div>
+
+<button class="buy-btn"
+onclick="comprarPlan(10000,'VIP 5')">
 Comprar
 </button>
 </div>
@@ -723,8 +772,6 @@ COPIAR WALLET
 
 </div>
 
-<!-- REFERIDOS -->
-
 <div class="card">
 
 <h2>
@@ -734,7 +781,7 @@ COPIAR WALLET
 <br>
 
 <p>
-Gana el <b>15%</b> de comisión por cada depósito o ganancia diaria de tus invitados.
+Gana <b>15%</b> de comisión por cada invitado.
 </p>
 
 <br>
@@ -852,8 +899,6 @@ CONFIRMAR RETIRO
 </div>
 
 </div>
-
-<!-- PERFIL -->
 
 <div id="profileTab"
 style="display:none;">
@@ -1222,42 +1267,46 @@ btn.classList.add("active");
 
 }
 
-/* DEPOSITAR FUNCIONANDO */
-
 function depositar(){
 
-const montoTexto =
+let monto =
 prompt("Ingrese el monto a depositar");
 
-if(montoTexto === null){
+if(monto === null){
 return;
 }
 
-const monto =
-Number(montoTexto);
+monto = monto.replace(",", ".");
 
-if(isNaN(monto) || monto <= 0){
+const valor =
+parseFloat(monto);
+
+if(
+isNaN(valor)
+||
+valor <= 0
+){
 
 toast("Monto inválido");
 return;
 
 }
 
-saldo += monto;
+saldo += valor;
 
 const comision =
-monto * 0.15;
+valor * 0.15;
 
 gananciasReferidos += comision;
 
 actualizarSaldo();
 
 historial.unshift(
-`💸 Depósito +S/ ${monto.toFixed(2)}`
+`💸 Depósito +S/ ${valor.toFixed(2)}`
 );
 
 historial.unshift(
-`👥 Comisión referidos +S/ ${comision.toFixed(2)}`
+`👥 Referidos 15% +S/ ${comision.toFixed(2)}`
 );
 
 actualizarHistorial();
