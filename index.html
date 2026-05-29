@@ -16,7 +16,14 @@ font-family:Arial,sans-serif;
 }
 
 body{
-background:#030712;
+background:linear-gradient(
+180deg,
+#02040a,
+#07111f,
+#02040a
+);
+background-size:400% 400%;
+animation:fondoAnimado 12s ease infinite;
 display:flex;
 justify-content:center;
 align-items:center;
@@ -24,11 +31,88 @@ height:100vh;
 overflow:hidden;
 }
 
+@keyframes fondoAnimado{
+
+0%{
+background-position:0% 50%;
+}
+
+50%{
+background-position:100% 50%;
+}
+
+100%{
+background-position:0% 50%;
+}
+
+}
+
+.stars{
+position:fixed;
+width:100%;
+height:100%;
+top:0;
+left:0;
+overflow:hidden;
+z-index:-1;
+}
+
+.star{
+position:absolute;
+width:2px;
+height:2px;
+background:white;
+border-radius:50%;
+animation:parpadeo 3s infinite;
+}
+
+@keyframes parpadeo{
+
+0%{
+opacity:0.2;
+}
+
+50%{
+opacity:1;
+}
+
+100%{
+opacity:0.2;
+}
+
+}
+
+.rocket{
+position:absolute;
+top:20px;
+right:20px;
+font-size:35px;
+animation:rocketMove 3s infinite ease-in-out;
+filter:drop-shadow(0 0 10px #00d9ff);
+}
+
+@keyframes rocketMove{
+
+0%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-10px);
+}
+
+100%{
+transform:translateY(0px);
+}
+
+}
+
 .app{
 width:100%;
 max-width:430px;
 height:100vh;
-background:#08111f;
+background:rgba(8,17,31,0.96);
+backdrop-filter:blur(12px);
 color:white;
 position:relative;
 overflow:hidden;
@@ -59,6 +143,7 @@ margin-bottom:35px;
 font-size:38px;
 font-weight:bold;
 color:#00d9ff;
+text-shadow:0 0 15px #00d9ff;
 }
 
 .logo p{
@@ -88,6 +173,7 @@ border-radius:14px;
 background:#111b2d;
 color:white;
 font-size:15px;
+border:1px solid #233554;
 }
 
 .btn{
@@ -101,6 +187,12 @@ font-weight:bold;
 font-size:15px;
 cursor:pointer;
 margin-top:10px;
+transition:0.3s;
+}
+
+.btn:hover{
+transform:scale(1.03);
+box-shadow:0 0 20px rgba(0,217,255,0.5);
 }
 
 .switch{
@@ -156,12 +248,80 @@ padding:15px;
 padding-bottom:90px;
 }
 
-.card{
-background:#0f1729;
-padding:18px;
-border-radius:20px;
+.banner{
+background:linear-gradient(90deg,#001a35,#002d5f);
+padding:16px;
+border-radius:18px;
 margin-bottom:15px;
-border:1px solid #1e2e4d;
+border:1px solid #00d9ff;
+text-align:center;
+box-shadow:0 0 15px rgba(0,217,255,0.2);
+}
+
+.banner h2{
+font-size:17px;
+margin-bottom:8px;
+}
+
+.banner p{
+font-size:13px;
+color:#ddd;
+line-height:1.5;
+}
+
+.card,
+.plan{
+background:#101a2f;
+border-radius:18px;
+padding:18px;
+margin-bottom:15px;
+border:1px solid #233554;
+box-shadow:0 0 15px rgba(0,217,255,0.15);
+transition:0.3s;
+}
+
+.card:hover,
+.plan:hover{
+transform:translateY(-3px);
+box-shadow:0 0 20px rgba(0,217,255,0.4);
+}
+
+.plan{
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.plan-left{
+display:flex;
+flex-direction:column;
+gap:5px;
+}
+
+.plan-title{
+font-size:22px;
+font-weight:bold;
+}
+
+.plan-profit{
+font-size:14px;
+color:#00ff95;
+}
+
+.buy-btn{
+padding:12px 15px;
+border:none;
+border-radius:12px;
+background:#00d9ff;
+color:black;
+font-weight:bold;
+cursor:pointer;
+transition:0.3s;
+}
+
+.buy-btn:hover{
+transform:scale(1.05);
+box-shadow:0 0 15px rgba(0,217,255,0.5);
 }
 
 .balance{
@@ -190,6 +350,17 @@ background:#16243c;
 color:white;
 font-weight:bold;
 cursor:pointer;
+transition:0.3s;
+}
+
+.action-btn:hover{
+transform:scale(1.03);
+box-shadow:0 0 15px rgba(0,217,255,0.5);
+}
+
+.withdraw-form{
+margin-top:15px;
+display:none;
 }
 
 .bottom{
@@ -217,78 +388,43 @@ color:#00d9ff;
 font-weight:bold;
 }
 
-.plan{
-background:#101a2f;
-border-radius:18px;
-padding:15px;
-margin-bottom:14px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-border:1px solid #233554;
-}
-
-.plan-left{
-display:flex;
-flex-direction:column;
-gap:5px;
-}
-
-.plan-title{
-font-size:22px;
-font-weight:bold;
-}
-
-.plan-profit{
-font-size:14px;
-color:#00ff95;
-}
-
-.buy-btn{
-padding:12px 15px;
-border:none;
-border-radius:12px;
+.toast{
+position:fixed;
+bottom:110px;
+left:50%;
+transform:translateX(-50%);
 background:#00d9ff;
 color:black;
+padding:14px 20px;
+border-radius:14px;
 font-weight:bold;
-cursor:pointer;
-}
-
-.withdraw-form{
-margin-top:15px;
 display:none;
-}
-
-.withdraw-form input,
-.withdraw-form select{
-margin-bottom:12px;
-}
-
-.banner{
-background:linear-gradient(90deg,#001a35,#002d5f);
-padding:16px;
-border-radius:18px;
-margin-bottom:15px;
-border:1px solid #00d9ff;
-text-align:center;
-}
-
-.banner h2{
-font-size:17px;
-margin-bottom:8px;
-}
-
-.banner p{
-font-size:13px;
-color:#ddd;
-line-height:1.5;
+z-index:999;
+box-shadow:0 0 20px rgba(0,217,255,0.5);
 }
 
 </style>
-
 </head>
 
 <body>
+
+<div class="stars">
+<div class="star" style="top:10%;left:20%;"></div>
+<div class="star" style="top:15%;left:70%;"></div>
+<div class="star" style="top:25%;left:40%;"></div>
+<div class="star" style="top:35%;left:80%;"></div>
+<div class="star" style="top:45%;left:10%;"></div>
+<div class="star" style="top:55%;left:60%;"></div>
+<div class="star" style="top:65%;left:30%;"></div>
+<div class="star" style="top:75%;left:90%;"></div>
+<div class="star" style="top:85%;left:50%;"></div>
+</div>
+
+<div class="rocket">
+🚀
+</div>
+
+<div class="toast" id="toast"></div>
 
 <div class="app">
 
@@ -342,12 +478,12 @@ INGRESAR
 </div>
 
 <div class="input-group">
-<label>Número de Teléfono</label>
+<label>Teléfono</label>
 <input type="number" id="registerTelefono">
 </div>
 
 <div class="input-group">
-<label>Correo Electrónico</label>
+<label>Correo</label>
 <input type="email" id="registerEmail">
 </div>
 
@@ -380,15 +516,11 @@ N
 </div>
 
 <div>
-
-<div id="username">
-Usuario
-</div>
+<div id="username">Usuario</div>
 
 <button class="logout" onclick="logout()">
 Cerrar sesión
 </button>
-
 </div>
 
 </div>
@@ -418,9 +550,8 @@ en Google Play Store y Apple App Store.
 <div class="plan">
 <div class="plan-left">
 <div class="plan-title">VIP 0 - S/500</div>
-<div class="plan-profit">Ganancia estimada S/33.70</div>
+<div class="plan-profit">Ganancia estimada diaria S/33.70</div>
 </div>
-
 <button class="buy-btn"
 onclick="comprarPlan(500,'VIP 0')">
 Comprar
@@ -430,9 +561,8 @@ Comprar
 <div class="plan">
 <div class="plan-left">
 <div class="plan-title">VIP 1 - S/750</div>
-<div class="plan-profit">Ganancia estimada S/53.70</div>
+<div class="plan-profit">Ganancia estimada diaria S/53.70</div>
 </div>
-
 <button class="buy-btn"
 onclick="comprarPlan(750,'VIP 1')">
 Comprar
@@ -442,47 +572,10 @@ Comprar
 <div class="plan">
 <div class="plan-left">
 <div class="plan-title">VIP 2 - S/1000</div>
-<div class="plan-profit">Ganancia estimada S/73.70</div>
+<div class="plan-profit">Ganancia estimada diaria S/73.70</div>
 </div>
-
 <button class="buy-btn"
 onclick="comprarPlan(1000,'VIP 2')">
-Comprar
-</button>
-</div>
-
-<div class="plan">
-<div class="plan-left">
-<div class="plan-title">VIP 3 - S/1500</div>
-<div class="plan-profit">Ganancia estimada S/93.70</div>
-</div>
-
-<button class="buy-btn"
-onclick="comprarPlan(1500,'VIP 3')">
-Comprar
-</button>
-</div>
-
-<div class="plan">
-<div class="plan-left">
-<div class="plan-title">VIP 4 - S/2500</div>
-<div class="plan-profit">Ganancia estimada S/122.70</div>
-</div>
-
-<button class="buy-btn"
-onclick="comprarPlan(2500,'VIP 4')">
-Comprar
-</button>
-</div>
-
-<div class="plan">
-<div class="plan-left">
-<div class="plan-title">VIP 5 - S/5000</div>
-<div class="plan-profit">Ganancia estimada S/323.70</div>
-</div>
-
-<button class="buy-btn"
-onclick="comprarPlan(5000,'VIP 5')">
 Comprar
 </button>
 </div>
@@ -517,8 +610,97 @@ Retirar
 
 </div>
 
+</div>
+
+<div class="card">
+
+<h2>💳 Depositar</h2>
+
+<br>
+
+<p>
+Envía USDT TRC20 a esta wallet:
+</p>
+
+<br>
+
+<div style="
+background:#08111f;
+padding:15px;
+border-radius:12px;
+word-break:break-all;
+border:1px solid #00d9ff;
+font-size:13px;
+">
+
+TB1vZrQ5RFKTsfZc3VeckfPxf4tS6pAhF5
+
+</div>
+
+<button class="btn"
+onclick="copiarWallet()">
+COPIAR WALLET
+</button>
+
+</div>
+
+<div class="card">
+
+<h2>👥 Sistema de Referidos</h2>
+
+<br>
+
+<p>
+Gana 15% por depósitos y ganancias diarias de tus invitados.
+</p>
+
+<br>
+
+<p>
+🆔 Tu ID:
+<span id="userId"></span>
+</p>
+
+<br>
+
+<div id="refLink"
+style="
+background:#08111f;
+padding:14px;
+border-radius:12px;
+word-break:break-all;
+border:1px solid #00d9ff;
+font-size:12px;
+">
+</div>
+
+<button class="btn"
+onclick="copiarReferido()">
+COPIAR LINK
+</button>
+
+</div>
+
+<div class="card">
+
+<h2>📜 Historial</h2>
+
+<br>
+
+<div id="historial">
+
+<p style="color:#777;">
+Sin movimientos todavía
+</p>
+
+</div>
+
+</div>
+
 <div class="withdraw-form"
 id="withdrawForm">
+
+<div class="card">
 
 <div class="input-group">
 <label>Nombre Completo</label>
@@ -554,10 +736,8 @@ id="withdrawForm">
 
 <button class="btn"
 onclick="procesarRetiro()">
-Confirmar Retiro
+CONFIRMAR RETIRO
 </button>
-
-</div>
 
 </div>
 
@@ -603,15 +783,14 @@ style="display:none;">
 <br>
 
 <p>
-💎 Rango:
-VIP
+🆔 ID:
+<span id="perfilID"></span>
 </p>
 
 <br>
 
 <p>
-🟢 Estado:
-Activo
+💎 Estado: VIP
 </p>
 
 </div>
@@ -643,17 +822,101 @@ Perfil
 
 </div>
 
-</div>
-
 <script>
 
 let saldo = 10;
+
+let historial = [];
+
+function generarID(){
+
+return "NSX" +
+Math.floor(Math.random()*999999);
+
+}
+
+function toast(msg){
+
+const t =
+document.getElementById("toast");
+
+t.innerText = msg;
+
+t.style.display = "block";
+
+setTimeout(()=>{
+
+t.style.display = "none";
+
+},2500);
+
+}
 
 function actualizarSaldo(){
 
 document.getElementById("balance")
 .innerText =
 "S/ " + saldo.toFixed(2);
+
+}
+
+function actualizarHistorial(){
+
+const div =
+document.getElementById("historial");
+
+if(historial.length === 0){
+
+div.innerHTML =
+'<p style="color:#777;">Sin movimientos todavía</p>';
+
+return;
+
+}
+
+div.innerHTML = "";
+
+historial.forEach(item=>{
+
+div.innerHTML += `
+
+<div style="
+padding:12px;
+margin-bottom:10px;
+background:#08111f;
+border-radius:12px;
+border:1px solid #1e2e4d;
+">
+
+${item}
+
+</div>
+
+`;
+
+});
+
+}
+
+function copiarWallet(){
+
+navigator.clipboard.writeText(
+"TB1vZrQ5RFKTsfZc3VeckfPxf4tS6pAhF5"
+);
+
+toast("Wallet copiada 🚀");
+
+}
+
+function copiarReferido(){
+
+const texto =
+document.getElementById("refLink")
+.innerText;
+
+navigator.clipboard.writeText(texto);
+
+toast("Link copiado 🚀");
 
 }
 
@@ -702,19 +965,22 @@ email === "" ||
 pass === ""
 ){
 
-alert("Completa todos los campos");
+toast("Completa todos los campos");
 return;
 
 }
 
+const id =
+generarID();
+
+localStorage.setItem("userID",id);
 localStorage.setItem("userNombre",nombre);
 localStorage.setItem("userApellido",apellido);
 localStorage.setItem("userTelefono",telefono);
-
 localStorage.setItem("userEmail",email);
 localStorage.setItem("userPass",pass);
 
-alert("Cuenta creada correctamente");
+toast("Cuenta creada correctamente");
 
 showLogin();
 
@@ -769,9 +1035,24 @@ document.getElementById("perfilTelefono")
 .innerText =
 localStorage.getItem("userTelefono");
 
+document.getElementById("perfilID")
+.innerText =
+localStorage.getItem("userID");
+
+document.getElementById("userId")
+.innerText =
+localStorage.getItem("userID");
+
+document.getElementById("refLink")
+.innerText =
+"https://neuraspacex.com/register?ref=" +
+localStorage.getItem("userID");
+
+toast("Bienvenido 🚀");
+
 }else{
 
-alert("Correo o contraseña incorrectos");
+toast("Correo o contraseña incorrectos");
 
 }
 
@@ -811,7 +1092,7 @@ btn.classList.add("active");
 function depositar(){
 
 let monto =
-prompt("Monto a depositar");
+prompt("Monto depositado");
 
 monto = parseFloat(monto);
 
@@ -822,11 +1103,17 @@ saldo += monto;
 
 actualizarSaldo();
 
-alert("Depósito realizado");
+historial.unshift(
+`💸 Depósito +S/ ${monto.toFixed(2)}`
+);
+
+actualizarHistorial();
+
+toast("Depósito realizado 🚀");
 
 }else{
 
-alert("Monto inválido");
+toast("Monto inválido");
 
 }
 
@@ -865,14 +1152,14 @@ cuenta === "" ||
 isNaN(monto)
 ){
 
-alert("Completa todos los datos");
+toast("Completa todos los datos");
 return;
 
 }
 
 if(monto > saldo){
 
-alert("Saldo insuficiente");
+toast("Saldo insuficiente");
 return;
 
 }
@@ -881,47 +1168,41 @@ saldo -= monto;
 
 actualizarSaldo();
 
-alert(
-"Retiro procesado correctamente al banco " + banco
+historial.unshift(
+`🏦 Retiro -S/ ${monto.toFixed(2)} a ${banco}`
 );
+
+actualizarHistorial();
 
 document.getElementById("withdrawForm")
 .style.display="none";
+
+toast(
+`Retiro enviado correctamente ✅`
+);
 
 }
 
 function comprarPlan(precio,nombre){
 
-if(saldo <= 0){
-
-alert(
-"Primero debes depositar saldo"
-);
-
-return;
-
-}
-
 if(saldo < precio){
 
-alert("Saldo insuficiente");
+toast("Saldo insuficiente");
 return;
 
 }
-
-if(confirm(
-`¿Comprar ${nombre} por S/ ${precio}?`
-)){
 
 saldo -= precio;
 
 actualizarSaldo();
 
-alert(
-`${nombre} activado correctamente`
+historial.unshift(
+`🚀 Plan activado: ${nombre}`
 );
 
-}
+actualizarHistorial();
+
+toast(`${nombre} activado`);
 
 }
 
