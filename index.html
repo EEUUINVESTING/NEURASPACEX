@@ -12,11 +12,11 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial, sans-serif;
+font-family:Arial,sans-serif;
 }
 
 body{
-background:#05070d;
+background:#030712;
 display:flex;
 justify-content:center;
 align-items:center;
@@ -26,9 +26,9 @@ overflow:hidden;
 
 .app{
 width:100%;
-max-width:420px;
+max-width:430px;
 height:100vh;
-background:#0b1220;
+background:#08111f;
 color:white;
 position:relative;
 overflow:hidden;
@@ -45,8 +45,8 @@ display:flex;
 }
 
 .auth{
-padding:30px 20px;
 justify-content:center;
+padding:30px 20px;
 }
 
 .logo{
@@ -55,13 +55,15 @@ margin-bottom:40px;
 }
 
 .logo h1{
-font-size:35px;
+font-size:38px;
+font-weight:bold;
 color:#00d9ff;
 }
 
 .logo p{
 color:#aaa;
-margin-top:8px;
+margin-top:10px;
+font-size:15px;
 }
 
 .input-group{
@@ -75,15 +77,16 @@ font-size:14px;
 color:#ccc;
 }
 
-.input-group input{
+.input-group input,
+.input-group select{
 width:100%;
 padding:16px;
 border:none;
+outline:none;
 border-radius:14px;
-background:#121b2f;
+background:#111b2d;
 color:white;
 font-size:15px;
-outline:none;
 }
 
 .btn{
@@ -91,7 +94,7 @@ width:100%;
 padding:16px;
 border:none;
 border-radius:14px;
-background:linear-gradient(90deg,#00d9ff,#0077ff);
+background:linear-gradient(90deg,#00d9ff,#006eff);
 color:white;
 font-weight:bold;
 font-size:15px;
@@ -102,8 +105,7 @@ margin-top:10px;
 .switch{
 text-align:center;
 margin-top:20px;
-color:#999;
-font-size:14px;
+color:#aaa;
 }
 
 .switch span{
@@ -113,11 +115,11 @@ font-weight:bold;
 }
 
 .header{
-padding:20px;
+padding:18px;
 display:flex;
 justify-content:space-between;
 align-items:center;
-border-bottom:1px solid #1b263d;
+border-bottom:1px solid #1d2c46;
 }
 
 .user{
@@ -138,33 +140,41 @@ font-weight:bold;
 color:black;
 }
 
+.logout{
+background:none;
+border:none;
+color:#ff6262;
+font-size:13px;
+cursor:pointer;
+}
+
 .content{
 flex:1;
 overflow-y:auto;
-padding:20px;
-padding-bottom:100px;
+padding:15px;
+padding-bottom:90px;
 }
 
 .card{
-background:#111b2d;
-padding:20px;
+background:#0f1729;
+padding:18px;
 border-radius:20px;
 margin-bottom:15px;
-border:1px solid #1f2e4d;
+border:1px solid #1e2e4d;
 }
 
 .balance{
 font-size:34px;
 font-weight:bold;
-margin-top:10px;
+margin-top:8px;
 }
 
 .small{
-color:#999;
 font-size:13px;
+color:#aaa;
 }
 
-.wallet-buttons{
+.wallet-actions{
 display:grid;
 grid-template-columns:1fr 1fr;
 gap:10px;
@@ -172,10 +182,10 @@ margin-top:15px;
 }
 
 .action-btn{
-padding:15px;
+padding:14px;
 border:none;
 border-radius:14px;
-background:#16233c;
+background:#16243c;
 color:white;
 font-weight:bold;
 cursor:pointer;
@@ -187,17 +197,17 @@ bottom:0;
 left:0;
 width:100%;
 display:flex;
-background:#0c1320;
-border-top:1px solid #1f2e4d;
+background:#08111f;
+border-top:1px solid #1e2e4d;
 }
 
 .nav{
 flex:1;
 padding:15px 0;
-border:none;
 background:none;
+border:none;
 color:#aaa;
-font-size:13px;
+font-size:12px;
 cursor:pointer;
 }
 
@@ -207,31 +217,56 @@ font-weight:bold;
 }
 
 .plan{
-background:#111b2d;
+background:#101a2f;
+border-radius:18px;
 padding:15px;
-border-radius:16px;
-margin-bottom:12px;
+margin-bottom:14px;
 display:flex;
 justify-content:space-between;
 align-items:center;
+border:1px solid #233554;
 }
 
-.buy{
-padding:10px 14px;
+.plan-left{
+display:flex;
+flex-direction:column;
+gap:5px;
+}
+
+.plan-title{
+font-size:22px;
+font-weight:bold;
+}
+
+.plan-profit{
+font-size:14px;
+color:#00ff95;
+}
+
+.buy-btn{
+padding:12px 15px;
 border:none;
-border-radius:10px;
+border-radius:12px;
 background:#00d9ff;
 color:black;
 font-weight:bold;
 cursor:pointer;
 }
 
-.logout{
-background:none;
-border:none;
-color:#ff5a5a;
-cursor:pointer;
-font-size:13px;
+.withdraw-form{
+margin-top:15px;
+display:none;
+}
+
+.withdraw-form input,
+.withdraw-form select{
+margin-bottom:12px;
+}
+
+.success{
+color:#00ff95;
+font-size:14px;
+margin-top:10px;
 }
 
 </style>
@@ -260,7 +295,9 @@ font-size:13px;
 <input type="password" id="loginPass">
 </div>
 
-<button class="btn" onclick="login()">INGRESAR</button>
+<button class="btn" onclick="login()">
+INGRESAR
+</button>
 
 <div class="switch">
 ¿No tienes cuenta?
@@ -288,7 +325,9 @@ font-size:13px;
 <input type="password" id="registerPass">
 </div>
 
-<button class="btn" onclick="register()">REGISTRARSE</button>
+<button class="btn" onclick="register()">
+REGISTRARSE
+</button>
 
 <div class="switch">
 ¿Ya tienes cuenta?
@@ -304,11 +343,18 @@ font-size:13px;
 <div class="header">
 
 <div class="user">
-<div class="avatar" id="avatar">N</div>
+
+<div class="avatar" id="avatar">
+N
+</div>
 
 <div>
 <div id="username">Usuario</div>
-<button class="logout" onclick="logout()">Cerrar sesión</button>
+
+<button class="logout" onclick="logout()">
+Cerrar sesión
+</button>
+
 </div>
 </div>
 
@@ -318,20 +364,104 @@ font-size:13px;
 
 <div class="content">
 
-<!-- HOME -->
+<!-- PLANES -->
 
-<div id="homeTab">
+<div id="plansTab">
 
-<div class="card">
-<div class="small">Saldo Disponible</div>
-<div class="balance" id="balance">S/ 10.00</div>
+<div class="plan">
+
+<div class="plan-left">
+<div class="plan-title">VIP 0 - S/500</div>
+<div class="plan-profit">
+Ganancia estimada S/33.70
+</div>
 </div>
 
-<div class="card">
-<h3>🎁 Bono de bienvenida</h3>
-<p class="small">
-Todos los usuarios reciben S/10 automáticamente.
-</p>
+<button class="buy-btn"
+onclick="comprarPlan(500,'VIP 0')">
+Comprar
+</button>
+
+</div>
+
+<div class="plan">
+
+<div class="plan-left">
+<div class="plan-title">VIP 1 - S/750</div>
+<div class="plan-profit">
+Ganancia estimada S/53.70
+</div>
+</div>
+
+<button class="buy-btn"
+onclick="comprarPlan(750,'VIP 1')">
+Comprar
+</button>
+
+</div>
+
+<div class="plan">
+
+<div class="plan-left">
+<div class="plan-title">VIP 2 - S/1000</div>
+<div class="plan-profit">
+Ganancia estimada S/73.70
+</div>
+</div>
+
+<button class="buy-btn"
+onclick="comprarPlan(1000,'VIP 2')">
+Comprar
+</button>
+
+</div>
+
+<div class="plan">
+
+<div class="plan-left">
+<div class="plan-title">VIP 3 - S/1500</div>
+<div class="plan-profit">
+Ganancia estimada S/93.70
+</div>
+</div>
+
+<button class="buy-btn"
+onclick="comprarPlan(1500,'VIP 3')">
+Comprar
+</button>
+
+</div>
+
+<div class="plan">
+
+<div class="plan-left">
+<div class="plan-title">VIP 4 - S/2500</div>
+<div class="plan-profit">
+Ganancia estimada S/122.70
+</div>
+</div>
+
+<button class="buy-btn"
+onclick="comprarPlan(2500,'VIP 4')">
+Comprar
+</button>
+
+</div>
+
+<div class="plan">
+
+<div class="plan-left">
+<div class="plan-title">VIP 5 - S/5000</div>
+<div class="plan-profit">
+Ganancia estimada S/323.70
+</div>
+</div>
+
+<button class="buy-btn"
+onclick="comprarPlan(5000,'VIP 5')">
+Comprar
+</button>
+
 </div>
 
 </div>
@@ -342,81 +472,127 @@ Todos los usuarios reciben S/10 automáticamente.
 
 <div class="card">
 
-<div class="small">Balance Wallet</div>
+<div class="small">
+Saldo Disponible
+</div>
 
-<div class="balance" id="walletBalance">
+<div class="balance" id="balance">
 S/ 10.00
 </div>
 
-<div class="wallet-buttons">
+<div class="wallet-actions">
 
-<button class="action-btn" onclick="depositar()">
+<button class="action-btn"
+onclick="depositar()">
 Depositar
 </button>
 
-<button class="action-btn" onclick="retirar()">
+<button class="action-btn"
+onclick="mostrarRetiro()">
 Retirar
 </button>
 
 </div>
 
+<div class="withdraw-form"
+id="withdrawForm">
+
+<div class="input-group">
+<label>Nombre Completo</label>
+<input type="text" id="nombreRetiro">
 </div>
 
+<div class="input-group">
+<label>DNI</label>
+<input type="number" id="dniRetiro">
 </div>
 
-<!-- PLANES -->
+<div class="input-group">
+<label>Banco</label>
 
-<div id="plansTab" style="display:none;">
+<select id="bancoRetiro">
+<option>BCP</option>
+<option>Interbank</option>
+<option>BBVA</option>
+<option>Scotiabank</option>
+</select>
 
-<div class="plan">
-<div>
-<h3>VIP 1</h3>
-<p>S/ 500</p>
 </div>
 
-<button class="buy" onclick="comprar(500)">
-Comprar
+<div class="input-group">
+<label>Número de Cuenta</label>
+<input type="number" id="cuentaRetiro">
+</div>
+
+<div class="input-group">
+<label>Monto</label>
+<input type="number" id="montoRetiro">
+</div>
+
+<button class="btn"
+onclick="procesarRetiro()">
+Confirmar Retiro
 </button>
-</div>
 
-<div class="plan">
-<div>
-<h3>VIP 2</h3>
-<p>S/ 1000</p>
-</div>
-
-<button class="buy" onclick="comprar(1000)">
-Comprar
-</button>
-</div>
-
-<div class="plan">
-<div>
-<h3>VIP 3</h3>
-<p>S/ 1500</p>
-</div>
-
-<button class="buy" onclick="comprar(1500)">
-Comprar
-</button>
 </div>
 
 </div>
 
 </div>
+
+<!-- PERFIL -->
+
+<div id="profileTab"
+style="display:none;">
+
+<div class="card">
+
+<h2>Mi Perfil</h2>
+
+<br>
+
+<p>
+Correo:
+<span id="correoPerfil"></span>
+</p>
+
+<br>
+
+<p>
+Rango:
+VIP
+</p>
+
+<br>
+
+<p>
+Estado:
+Activo
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- NAV -->
 
 <div class="bottom">
 
-<button class="nav active" onclick="showTab('homeTab',this)">
-Inicio
-</button>
-
-<button class="nav" onclick="showTab('plansTab',this)">
+<button class="nav active"
+onclick="showTab('plansTab',this)">
 Planes
 </button>
 
-<button class="nav" onclick="showTab('walletTab',this)">
+<button class="nav"
+onclick="showTab('walletTab',this)">
 Wallet
+</button>
+
+<button class="nav"
+onclick="showTab('profileTab',this)">
+Perfil
 </button>
 
 </div>
@@ -427,24 +603,34 @@ Wallet
 
 <script>
 
-let balance = 10;
+let saldo = 10;
 
-function updateBalance(){
-document.getElementById("balance").innerText =
-"S/ " + balance.toFixed(2);
+function actualizarSaldo(){
 
-document.getElementById("walletBalance").innerText =
-"S/ " + balance.toFixed(2);
+document.getElementById("balance")
+.innerText =
+"S/ " + saldo.toFixed(2);
+
 }
 
 function showRegister(){
-document.getElementById("loginScreen").classList.remove("active");
-document.getElementById("registerScreen").classList.add("active");
+
+document.getElementById("loginScreen")
+.classList.remove("active");
+
+document.getElementById("registerScreen")
+.classList.add("active");
+
 }
 
 function showLogin(){
-document.getElementById("registerScreen").classList.remove("active");
-document.getElementById("loginScreen").classList.add("active");
+
+document.getElementById("registerScreen")
+.classList.remove("active");
+
+document.getElementById("loginScreen")
+.classList.add("active");
+
 }
 
 function register(){
@@ -456,8 +642,10 @@ const pass =
 document.getElementById("registerPass").value;
 
 if(email === "" || pass === ""){
+
 alert("Completa todos los campos");
 return;
+
 }
 
 localStorage.setItem("userEmail",email);
@@ -483,7 +671,8 @@ localStorage.getItem("userEmail");
 const savedPass =
 localStorage.getItem("userPass");
 
-if(email === savedEmail && pass === savedPass){
+if(email === savedEmail &&
+pass === savedPass){
 
 document.getElementById("loginScreen")
 .classList.remove("active");
@@ -492,13 +681,20 @@ document.getElementById("dashboard")
 .classList.add("active");
 
 document.getElementById("username")
-.innerText = email.split("@")[0];
+.innerText =
+email.split("@")[0];
 
 document.getElementById("avatar")
-.innerText = email.charAt(0).toUpperCase();
+.innerText =
+email.charAt(0).toUpperCase();
+
+document.getElementById("correoPerfil")
+.innerText = email;
 
 }else{
+
 alert("Correo o contraseña incorrectos");
+
 }
 
 }
@@ -515,13 +711,13 @@ document.getElementById("loginScreen")
 
 function showTab(id,btn){
 
-document.getElementById("homeTab")
+document.getElementById("plansTab")
 .style.display="none";
 
 document.getElementById("walletTab")
 .style.display="none";
 
-document.getElementById("plansTab")
+document.getElementById("profileTab")
 .style.display="none";
 
 document.getElementById(id)
@@ -536,65 +732,122 @@ btn.classList.add("active");
 
 function depositar(){
 
-let monto = prompt("Monto a depositar");
+let monto =
+prompt("Monto a depositar");
 
 monto = parseFloat(monto);
 
-if(!isNaN(monto) && monto > 0){
+if(!isNaN(monto) &&
+monto > 0){
 
-balance += monto;
+saldo += monto;
 
-updateBalance();
+actualizarSaldo();
 
 alert("Depósito realizado");
 
 }else{
+
 alert("Monto inválido");
+
 }
 
 }
 
-function retirar(){
+function mostrarRetiro(){
 
-let monto = prompt("Monto a retirar");
+document.getElementById("withdrawForm")
+.style.display="block";
 
-monto = parseFloat(monto);
+}
 
-if(isNaN(monto) || monto <= 0){
-alert("Monto inválido");
+function procesarRetiro(){
+
+const nombre =
+document.getElementById("nombreRetiro").value;
+
+const dni =
+document.getElementById("dniRetiro").value;
+
+const banco =
+document.getElementById("bancoRetiro").value;
+
+const cuenta =
+document.getElementById("cuentaRetiro").value;
+
+const monto =
+parseFloat(
+document.getElementById("montoRetiro").value
+);
+
+if(
+nombre === "" ||
+dni === "" ||
+cuenta === "" ||
+isNaN(monto)
+){
+
+alert("Completa todos los datos");
 return;
+
 }
 
-if(monto > balance){
+if(monto > saldo){
+
 alert("Saldo insuficiente");
 return;
-}
-
-balance -= monto;
-
-updateBalance();
-
-alert("Retiro realizado");
 
 }
 
-function comprar(precio){
+saldo -= monto;
 
-if(balance >= precio){
+actualizarSaldo();
 
-balance -= precio;
+alert(
+"Retiro procesado correctamente"
+);
 
-updateBalance();
+document.getElementById("withdrawForm")
+.style.display="none";
 
-alert("Plan comprado correctamente");
+}
 
-}else{
+function comprarPlan(precio,nombre){
+
+if(saldo <= 0){
+
+alert(
+"Primero debes depositar saldo"
+);
+
+return;
+
+}
+
+if(saldo < precio){
+
 alert("Saldo insuficiente");
-}
+return;
 
 }
 
-updateBalance();
+if(confirm(
+`¿Comprar ${nombre} por S/ ${precio}?`
+)){
+
+saldo -= precio;
+
+actualizarSaldo();
+
+alert(
+`${nombre} activado correctamente`
+);
+
+}
+
+}
+
+actualizarSaldo();
 
 </script>
 
