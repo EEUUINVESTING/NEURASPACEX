@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NeuraSpaceX</title>
+<title>NEURASPACEX</title>
 
 <style>
 
@@ -23,14 +23,12 @@ justify-content:center;
 align-items:center;
 }
 
-/* FONDO */
-
 .space-bg{
 position:fixed;
 width:100%;
 height:100%;
 overflow:hidden;
-z-index:-3;
+z-index:-2;
 background:
 radial-gradient(circle at top,#0b1f46,#020817 70%);
 }
@@ -55,13 +53,11 @@ transform:translateY(-500px);
 }
 }
 
-/* COHETE */
-
 .rocket{
 position:absolute;
 bottom:-100px;
 right:20px;
-font-size:70px;
+font-size:75px;
 animation:rocketFly 12s linear infinite;
 filter:drop-shadow(0 0 20px #00d9ff);
 }
@@ -94,13 +90,11 @@ opacity:0;
 
 }
 
-/* APP */
-
 .app{
 width:100%;
 max-width:430px;
 height:100vh;
-background:rgba(8,17,31,0.95);
+background:rgba(8,17,31,0.96);
 backdrop-filter:blur(15px);
 color:white;
 overflow:hidden;
@@ -116,8 +110,6 @@ flex-direction:column;
 .active{
 display:flex;
 }
-
-/* LOGIN */
 
 .auth{
 justify-content:center;
@@ -200,8 +192,6 @@ font-weight:bold;
 cursor:pointer;
 }
 
-/* HEADER */
-
 .header{
 padding:16px;
 display:flex;
@@ -218,8 +208,8 @@ gap:10px;
 }
 
 .avatar{
-width:45px;
-height:45px;
+width:48px;
+height:48px;
 border-radius:50%;
 background:#00d9ff;
 display:flex;
@@ -241,16 +231,12 @@ color:#aaa;
 font-size:11px;
 }
 
-/* CONTENT */
-
 .content{
 flex:1;
 overflow-y:auto;
 padding:15px;
 padding-bottom:110px;
 }
-
-/* BANNER */
 
 .banner{
 background:linear-gradient(
@@ -275,8 +261,6 @@ font-size:13px;
 color:#ddd;
 line-height:1.5;
 }
-
-/* CARDS */
 
 .card,
 .plan{
@@ -326,8 +310,6 @@ transition:0.3s;
 transform:scale(1.05);
 }
 
-/* BALANCE */
-
 .balance{
 font-size:35px;
 font-weight:bold;
@@ -358,8 +340,6 @@ color:black;
 transform:scale(1.03);
 }
 
-/* BOTTOM NAV */
-
 .bottom{
 position:absolute;
 bottom:15px;
@@ -373,7 +353,6 @@ backdrop-filter:blur(12px);
 padding:12px;
 border-radius:25px;
 border:1px solid #1f3658;
-box-shadow:0 0 25px rgba(0,217,255,0.15);
 }
 
 .nav{
@@ -400,12 +379,6 @@ color:white;
 box-shadow:0 0 20px rgba(0,217,255,0.4);
 }
 
-.nav:hover{
-transform:translateY(-2px);
-}
-
-/* TOAST */
-
 .toast{
 position:fixed;
 bottom:120px;
@@ -420,8 +393,6 @@ display:none;
 z-index:999;
 }
 
-/* HISTORIAL */
-
 .history-item{
 padding:12px;
 background:#08111f;
@@ -430,11 +401,35 @@ margin-bottom:10px;
 border:1px solid #1d2c46;
 }
 
-/* RETIRO */
-
 .withdraw-form{
 display:none;
 margin-top:15px;
+}
+
+.live-box{
+height:220px;
+overflow:hidden;
+}
+
+.live-item{
+padding:10px;
+background:#08111f;
+border-radius:10px;
+margin-bottom:8px;
+font-size:13px;
+border:1px solid #1d2c46;
+animation:fadeIn 0.5s;
+}
+
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:translateY(10px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
 }
 
 </style>
@@ -443,7 +438,6 @@ margin-top:15px;
 <body>
 
 <div class="space-bg">
-
 <div class="stars"></div>
 
 <div class="rocket">
@@ -462,7 +456,9 @@ margin-top:15px;
 
 <div class="logo">
 <h1>NEURASPACEX</h1>
-<p>Bienvenidos</p>
+<p>
+Viajes espaciales para Marte 2035 🚀
+</p>
 </div>
 
 <div class="input-group">
@@ -488,7 +484,7 @@ Registrarse
 
 </div>
 
-<!-- REGISTER -->
+<!-- REGISTRO -->
 
 <div class="screen auth" id="registerScreen">
 
@@ -554,7 +550,11 @@ Usuario
 </b>
 
 <small id="userID">
-ID: NSX000
+ID: NSX00000000
+</small>
+
+<small id="userIQ">
+IQ: 00000000
 </small>
 
 </div>
@@ -589,11 +589,23 @@ S/ 10.00
 <div class="banner">
 
 <h2>
-🚀 Próximo Lanzamiento
+📱 Lanzamiento Oficial
 </h2>
 
 <p>
-NeuraSpaceX llegará oficialmente a Google Play y App Store el 25 de Junio de 2026.
+La aplicación oficial llegará a Play Store y App Store el <b>25 de Junio de 2026</b> 🚀
+</p>
+
+</div>
+
+<div class="banner">
+
+<h2>
+🚀 Proyecto Marte 2035
+</h2>
+
+<p>
+Más de <b>600 usuarios</b> ya se registraron en NeuraSpaceX.
 </p>
 
 </div>
@@ -650,44 +662,11 @@ Comprar
 </button>
 </div>
 
-<div class="plan">
-<div>
-<div class="plan-title">
-VIP 3 - S/2500
-</div>
-<div class="plan-profit">
-Ganancia diaria S/123.70
-</div>
-</div>
-
-<button class="buy-btn"
-onclick="comprarPlan(2500,'VIP 3')">
-Comprar
-</button>
-</div>
-
-<div class="plan">
-<div>
-<div class="plan-title">
-VIP 4 - S/5000
-</div>
-<div class="plan-profit">
-Ganancia diaria S/323.70
-</div>
-</div>
-
-<button class="buy-btn"
-onclick="comprarPlan(5000,'VIP 4')">
-Comprar
-</button>
-</div>
-
 </div>
 
 <!-- WALLET -->
 
-<div id="walletTab"
-style="display:none;">
+<div id="walletTab" style="display:none;">
 
 <div class="card">
 
@@ -744,16 +723,18 @@ COPIAR WALLET
 
 </div>
 
+<!-- REFERIDOS -->
+
 <div class="card">
 
 <h2>
-👥 Referidos
+👥 Sistema de Referidos
 </h2>
 
 <br>
 
 <p>
-Gana 15% de depósitos y ganancias de tus invitados.
+Gana el <b>15%</b> de comisión por cada depósito o ganancia diaria de tus invitados.
 </p>
 
 <br>
@@ -769,10 +750,40 @@ font-size:12px;
 ">
 </div>
 
+<br>
+
+<div style="
+background:#08111f;
+padding:14px;
+border-radius:14px;
+border:1px solid #00ff95;
+">
+
+Ganancias Referidos:
+<b id="refGanancias">
+S/ 0.00
+</b>
+
+</div>
+
 <button class="btn"
 onclick="copiarReferido()">
 COPIAR LINK
 </button>
+
+</div>
+
+<div class="card">
+
+<h2>
+📡 Actividad Global
+</h2>
+
+<br>
+
+<div class="live-box"
+id="liveBox">
+</div>
 
 </div>
 
@@ -855,46 +866,25 @@ style="display:none;">
 
 <br>
 
-<p>
-Nombre:
-<b id="perfilNombre"></b>
-</p>
-
+<p>Nombre: <b id="perfilNombre"></b></p>
 <br>
 
-<p>
-Apellido:
-<b id="perfilApellido"></b>
-</p>
-
+<p>Apellido: <b id="perfilApellido"></b></p>
 <br>
 
-<p>
-Teléfono:
-<b id="perfilTelefono"></b>
-</p>
-
+<p>Teléfono: <b id="perfilTelefono"></b></p>
 <br>
 
-<p>
-Correo:
-<b id="correoPerfil"></b>
-</p>
-
+<p>Correo: <b id="correoPerfil"></b></p>
 <br>
 
-<p>
-ID:
-<b id="perfilID"></b>
-</p>
+<p>ID: <b id="perfilID"></b></p>
 
 </div>
 
 </div>
 
 </div>
-
-<!-- BOTTOM -->
 
 <div class="bottom">
 
@@ -920,13 +910,32 @@ onclick="showTab('profileTab',this)">
 <script>
 
 let saldo = 10;
-
 let historial = [];
+let gananciasReferidos = 0;
+
+const movimientos = [
+"💸 Carlos depositó S/12,500",
+"🏦 Mariana retiró S/3,200",
+"🚀 Alex compró VIP 5",
+"💸 Fernando depositó S/22,000",
+"🏦 Lucia retiró S/1,450",
+"🚀 Ricardo compró VIP 3"
+];
 
 function generarID(){
 
 return "NSX" +
-Math.floor(Math.random()*999999);
+Math.floor(
+10000000 + Math.random()*90000000
+);
+
+}
+
+function generarIQ(){
+
+return Math.floor(
+10000000 + Math.random()*90000000
+);
 
 }
 
@@ -940,9 +949,7 @@ t.innerText = msg;
 t.style.display = "block";
 
 setTimeout(()=>{
-
 t.style.display = "none";
-
 },2500);
 
 }
@@ -956,6 +963,10 @@ document.getElementById("balance")
 document.getElementById("topBalance")
 .innerText =
 "S/ " + saldo.toFixed(2);
+
+document.getElementById("refGanancias")
+.innerText =
+"S/ " + gananciasReferidos.toFixed(2);
 
 }
 
@@ -978,14 +989,46 @@ div.innerHTML = "";
 historial.forEach(item=>{
 
 div.innerHTML += `
-
 <div class="history-item">
 ${item}
 </div>
-
 `;
 
 });
+
+}
+
+function actividadGlobal(){
+
+const box =
+document.getElementById("liveBox");
+
+setInterval(()=>{
+
+const item =
+movimientos[
+Math.floor(Math.random()*movimientos.length)
+];
+
+const div =
+document.createElement("div");
+
+div.className =
+"live-item";
+
+div.innerText = item;
+
+box.prepend(div);
+
+if(box.children.length > 8){
+
+box.removeChild(
+box.lastChild
+);
+
+}
+
+},2000);
 
 }
 
@@ -1061,10 +1104,11 @@ return;
 
 }
 
-const id =
-generarID();
+const id = generarID();
+const iq = generarIQ();
 
 localStorage.setItem("userID",id);
+localStorage.setItem("userIQ",iq);
 localStorage.setItem("userNombre",nombre);
 localStorage.setItem("userApellido",apellido);
 localStorage.setItem("userTelefono",telefono);
@@ -1133,10 +1177,19 @@ document.getElementById("userID")
 "ID: " +
 localStorage.getItem("userID");
 
-document.getElementById("refLink")
+document.getElementById("userIQ")
 .innerText =
-"https://neuraspacex.com/register?ref=" +
+"IQ: " +
+localStorage.getItem("userIQ");
+
+const ref =
+window.location.origin +
+window.location.pathname +
+"?ref=" +
 localStorage.getItem("userID");
+
+document.getElementById("refLink")
+.innerText = ref;
 
 toast("Bienvenido 🚀");
 
@@ -1145,16 +1198,6 @@ toast("Bienvenido 🚀");
 toast("Correo o contraseña incorrectos");
 
 }
-
-}
-
-function logout(){
-
-document.getElementById("dashboard")
-.classList.remove("active");
-
-document.getElementById("loginScreen")
-.classList.add("active");
 
 }
 
@@ -1179,17 +1222,33 @@ btn.classList.add("active");
 
 }
 
+/* DEPOSITAR FUNCIONANDO */
+
 function depositar(){
 
-let monto =
-prompt("Monto depositado");
+const montoTexto =
+prompt("Ingrese el monto a depositar");
 
-monto = parseFloat(monto);
+if(montoTexto === null){
+return;
+}
 
-if(!isNaN(monto)
-&& monto > 0){
+const monto =
+Number(montoTexto);
+
+if(isNaN(monto) || monto <= 0){
+
+toast("Monto inválido");
+return;
+
+}
 
 saldo += monto;
+
+const comision =
+monto * 0.15;
+
+gananciasReferidos += comision;
 
 actualizarSaldo();
 
@@ -1197,15 +1256,13 @@ historial.unshift(
 `💸 Depósito +S/ ${monto.toFixed(2)}`
 );
 
+historial.unshift(
+`👥 Comisión referidos +S/ ${comision.toFixed(2)}`
+);
+
 actualizarHistorial();
 
 toast("Depósito realizado 🚀");
-
-}else{
-
-toast("Monto inválido");
-
-}
 
 }
 
@@ -1218,31 +1275,14 @@ document.getElementById("withdrawForm")
 
 function procesarRetiro(){
 
-const nombre =
-document.getElementById("nombreRetiro").value;
-
-const dni =
-document.getElementById("dniRetiro").value;
-
-const cuenta =
-document.getElementById("cuentaRetiro").value;
-
-const banco =
-document.getElementById("bancoRetiro").value;
-
 const monto =
 parseFloat(
 document.getElementById("montoRetiro").value
 );
 
-if(
-nombre === "" ||
-dni === "" ||
-cuenta === "" ||
-isNaN(monto)
-){
+if(isNaN(monto)){
 
-toast("Completa todos los datos");
+toast("Monto inválido");
 return;
 
 }
@@ -1259,7 +1299,7 @@ saldo -= monto;
 actualizarSaldo();
 
 historial.unshift(
-`🏦 Retiro -S/ ${monto.toFixed(2)} a ${banco}`
+`🏦 Retiro -S/ ${monto.toFixed(2)}`
 );
 
 actualizarHistorial();
@@ -1290,10 +1330,11 @@ historial.unshift(
 
 actualizarHistorial();
 
-toast(`${nombre} activado`);
+toast(`${nombre} activado 🚀`);
 
 }
 
+actividadGlobal();
 actualizarSaldo();
 
 </script>
