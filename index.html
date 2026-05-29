@@ -47,11 +47,12 @@ display:flex;
 .auth{
 justify-content:center;
 padding:30px 20px;
+overflow-y:auto;
 }
 
 .logo{
 text-align:center;
-margin-bottom:40px;
+margin-bottom:35px;
 }
 
 .logo h1{
@@ -263,13 +264,28 @@ display:none;
 margin-bottom:12px;
 }
 
-.success{
-color:#00ff95;
-font-size:14px;
-margin-top:10px;
+.banner{
+background:linear-gradient(90deg,#001a35,#002d5f);
+padding:16px;
+border-radius:18px;
+margin-bottom:15px;
+border:1px solid #00d9ff;
+text-align:center;
+}
+
+.banner h2{
+font-size:17px;
+margin-bottom:8px;
+}
+
+.banner p{
+font-size:13px;
+color:#ddd;
+line-height:1.5;
 }
 
 </style>
+
 </head>
 
 <body>
@@ -316,7 +332,22 @@ INGRESAR
 </div>
 
 <div class="input-group">
-<label>Correo</label>
+<label>Nombres</label>
+<input type="text" id="registerNombre">
+</div>
+
+<div class="input-group">
+<label>Apellidos</label>
+<input type="text" id="registerApellido">
+</div>
+
+<div class="input-group">
+<label>Número de Teléfono</label>
+<input type="number" id="registerTelefono">
+</div>
+
+<div class="input-group">
+<label>Correo Electrónico</label>
 <input type="email" id="registerEmail">
 </div>
 
@@ -349,13 +380,17 @@ N
 </div>
 
 <div>
-<div id="username">Usuario</div>
+
+<div id="username">
+Usuario
+</div>
 
 <button class="logout" onclick="logout()">
 Cerrar sesión
 </button>
 
 </div>
+
 </div>
 
 <div>🔔</div>
@@ -364,104 +399,92 @@ Cerrar sesión
 
 <div class="content">
 
+<div class="banner">
+
+<h2>🚀 Próximo Lanzamiento Oficial</h2>
+
+<p>
+La aplicación oficial de NeuraSpaceX será lanzada el
+<b>25 de Junio de 2026</b>
+en Google Play Store y Apple App Store.
+</p>
+
+</div>
+
 <!-- PLANES -->
 
 <div id="plansTab">
 
 <div class="plan">
-
 <div class="plan-left">
 <div class="plan-title">VIP 0 - S/500</div>
-<div class="plan-profit">
-Ganancia estimada S/33.70
-</div>
+<div class="plan-profit">Ganancia estimada S/33.70</div>
 </div>
 
 <button class="buy-btn"
 onclick="comprarPlan(500,'VIP 0')">
 Comprar
 </button>
-
 </div>
 
 <div class="plan">
-
 <div class="plan-left">
 <div class="plan-title">VIP 1 - S/750</div>
-<div class="plan-profit">
-Ganancia estimada S/53.70
-</div>
+<div class="plan-profit">Ganancia estimada S/53.70</div>
 </div>
 
 <button class="buy-btn"
 onclick="comprarPlan(750,'VIP 1')">
 Comprar
 </button>
-
 </div>
 
 <div class="plan">
-
 <div class="plan-left">
 <div class="plan-title">VIP 2 - S/1000</div>
-<div class="plan-profit">
-Ganancia estimada S/73.70
-</div>
+<div class="plan-profit">Ganancia estimada S/73.70</div>
 </div>
 
 <button class="buy-btn"
 onclick="comprarPlan(1000,'VIP 2')">
 Comprar
 </button>
-
 </div>
 
 <div class="plan">
-
 <div class="plan-left">
 <div class="plan-title">VIP 3 - S/1500</div>
-<div class="plan-profit">
-Ganancia estimada S/93.70
-</div>
+<div class="plan-profit">Ganancia estimada S/93.70</div>
 </div>
 
 <button class="buy-btn"
 onclick="comprarPlan(1500,'VIP 3')">
 Comprar
 </button>
-
 </div>
 
 <div class="plan">
-
 <div class="plan-left">
 <div class="plan-title">VIP 4 - S/2500</div>
-<div class="plan-profit">
-Ganancia estimada S/122.70
-</div>
+<div class="plan-profit">Ganancia estimada S/122.70</div>
 </div>
 
 <button class="buy-btn"
 onclick="comprarPlan(2500,'VIP 4')">
 Comprar
 </button>
-
 </div>
 
 <div class="plan">
-
 <div class="plan-left">
 <div class="plan-title">VIP 5 - S/5000</div>
-<div class="plan-profit">
-Ganancia estimada S/323.70
-</div>
+<div class="plan-profit">Ganancia estimada S/323.70</div>
 </div>
 
 <button class="buy-btn"
 onclick="comprarPlan(5000,'VIP 5')">
 Comprar
 </button>
-
 </div>
 
 </div>
@@ -552,21 +575,42 @@ style="display:none;">
 <br>
 
 <p>
-Correo:
+👤 Nombre:
+<span id="perfilNombre"></span>
+</p>
+
+<br>
+
+<p>
+🪪 Apellidos:
+<span id="perfilApellido"></span>
+</p>
+
+<br>
+
+<p>
+📱 Teléfono:
+<span id="perfilTelefono"></span>
+</p>
+
+<br>
+
+<p>
+📧 Correo:
 <span id="correoPerfil"></span>
 </p>
 
 <br>
 
 <p>
-Rango:
+💎 Rango:
 VIP
 </p>
 
 <br>
 
 <p>
-Estado:
+🟢 Estado:
 Activo
 </p>
 
@@ -635,18 +679,37 @@ document.getElementById("loginScreen")
 
 function register(){
 
+const nombre =
+document.getElementById("registerNombre").value;
+
+const apellido =
+document.getElementById("registerApellido").value;
+
+const telefono =
+document.getElementById("registerTelefono").value;
+
 const email =
 document.getElementById("registerEmail").value;
 
 const pass =
 document.getElementById("registerPass").value;
 
-if(email === "" || pass === ""){
+if(
+nombre === "" ||
+apellido === "" ||
+telefono === "" ||
+email === "" ||
+pass === ""
+){
 
 alert("Completa todos los campos");
 return;
 
 }
+
+localStorage.setItem("userNombre",nombre);
+localStorage.setItem("userApellido",apellido);
+localStorage.setItem("userTelefono",telefono);
 
 localStorage.setItem("userEmail",email);
 localStorage.setItem("userPass",pass);
@@ -682,14 +745,29 @@ document.getElementById("dashboard")
 
 document.getElementById("username")
 .innerText =
-email.split("@")[0];
+localStorage.getItem("userNombre");
 
 document.getElementById("avatar")
 .innerText =
-email.charAt(0).toUpperCase();
+localStorage
+.getItem("userNombre")
+.charAt(0)
+.toUpperCase();
 
 document.getElementById("correoPerfil")
 .innerText = email;
+
+document.getElementById("perfilNombre")
+.innerText =
+localStorage.getItem("userNombre");
+
+document.getElementById("perfilApellido")
+.innerText =
+localStorage.getItem("userApellido");
+
+document.getElementById("perfilTelefono")
+.innerText =
+localStorage.getItem("userTelefono");
 
 }else{
 
@@ -804,7 +882,7 @@ saldo -= monto;
 actualizarSaldo();
 
 alert(
-"Retiro procesado correctamente"
+"Retiro procesado correctamente al banco " + banco
 );
 
 document.getElementById("withdrawForm")
