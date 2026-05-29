@@ -306,10 +306,6 @@ cursor:pointer;
 transition:0.3s;
 }
 
-.buy-btn:hover{
-transform:scale(1.05);
-}
-
 .balance{
 font-size:35px;
 font-weight:bold;
@@ -337,7 +333,6 @@ transition:0.3s;
 .action-btn:hover{
 background:#00d9ff;
 color:black;
-transform:scale(1.03);
 }
 
 .bottom{
@@ -349,7 +344,6 @@ width:92%;
 display:flex;
 justify-content:space-around;
 background:rgba(10,20,35,0.95);
-backdrop-filter:blur(12px);
 padding:12px;
 border-radius:25px;
 border:1px solid #1f3658;
@@ -366,7 +360,6 @@ color:#aaa;
 font-size:13px;
 font-weight:bold;
 cursor:pointer;
-transition:0.3s;
 }
 
 .nav.active{
@@ -376,7 +369,6 @@ background:linear-gradient(
 #006eff
 );
 color:white;
-box-shadow:0 0 20px rgba(0,217,255,0.4);
 }
 
 .toast{
@@ -418,18 +410,6 @@ border-radius:10px;
 margin-bottom:8px;
 font-size:13px;
 border:1px solid #1d2c46;
-animation:fadeIn 0.5s;
-}
-
-@keyframes fadeIn{
-from{
-opacity:0;
-transform:translateY(10px);
-}
-to{
-opacity:1;
-transform:translateY(0);
-}
 }
 
 </style>
@@ -457,7 +437,7 @@ transform:translateY(0);
 <div class="logo">
 <h1>NEURASPACEX</h1>
 <p>
-Viajes espaciales para Marte 2035 🚀
+Viajes espaciales Marte 2035 🚀
 </p>
 </div>
 
@@ -563,20 +543,12 @@ IQ: 00000000
 
 <div>
 
-<div style="
-font-size:12px;
-color:#aaa;
-text-align:right;
-">
+<div style="font-size:12px;color:#aaa;">
 Saldo
 </div>
 
 <div id="topBalance"
-style="
-font-weight:bold;
-font-size:16px;
-color:#00ff95;
-">
+style="font-weight:bold;color:#00ff95;">
 S/ 10.00
 </div>
 
@@ -587,28 +559,18 @@ S/ 10.00
 <div class="content">
 
 <div class="banner">
-
-<h2>
-📱 Lanzamiento Oficial
-</h2>
-
+<h2>📱 Lanzamiento Oficial</h2>
 <p>
-La aplicación oficial llegará a Play Store y App Store el <b>25 de Junio de 2026</b> 🚀
+Play Store y App Store el
+<b>25 de Junio de 2026</b>
 </p>
-
 </div>
 
 <div class="banner">
-
-<h2>
-🚀 Proyecto Marte 2035
-</h2>
-
+<h2>🚀 Proyecto Marte 2035</h2>
 <p>
 Más de <b>600 usuarios</b> registrados.
-Sistema de referidos activo con comisión del <b>15%</b>.
 </p>
-
 </div>
 
 <!-- PLANES -->
@@ -624,7 +586,6 @@ VIP 0 - S/500
 Ganancia diaria S/33.70
 </div>
 </div>
-
 <button class="buy-btn"
 onclick="comprarPlan(500,'VIP 0')">
 Comprar
@@ -634,31 +595,14 @@ Comprar
 <div class="plan">
 <div>
 <div class="plan-title">
-VIP 1 - S/750
-</div>
-<div class="plan-profit">
-Ganancia diaria S/53.70
-</div>
-</div>
-
-<button class="buy-btn"
-onclick="comprarPlan(750,'VIP 1')">
-Comprar
-</button>
-</div>
-
-<div class="plan">
-<div>
-<div class="plan-title">
-VIP 2 - S/1000
+VIP 1 - S/1000
 </div>
 <div class="plan-profit">
 Ganancia diaria S/73.70
 </div>
 </div>
-
 <button class="buy-btn"
-onclick="comprarPlan(1000,'VIP 2')">
+onclick="comprarPlan(1000,'VIP 1')">
 Comprar
 </button>
 </div>
@@ -666,15 +610,14 @@ Comprar
 <div class="plan">
 <div>
 <div class="plan-title">
-VIP 3 - S/2500
+VIP 2 - S/2500
 </div>
 <div class="plan-profit">
 Ganancia diaria S/123.70
 </div>
 </div>
-
 <button class="buy-btn"
-onclick="comprarPlan(2500,'VIP 3')">
+onclick="comprarPlan(2500,'VIP 2')">
 Comprar
 </button>
 </div>
@@ -682,31 +625,14 @@ Comprar
 <div class="plan">
 <div>
 <div class="plan-title">
-VIP 4 - S/5000
+VIP 3 - S/5000
 </div>
 <div class="plan-profit">
 Ganancia diaria S/223.70
 </div>
 </div>
-
 <button class="buy-btn"
-onclick="comprarPlan(5000,'VIP 4')">
-Comprar
-</button>
-</div>
-
-<div class="plan">
-<div>
-<div class="plan-title">
-VIP 5 - S/10000
-</div>
-<div class="plan-profit">
-Ganancia diaria S/523.70
-</div>
-</div>
-
-<button class="buy-btn"
-onclick="comprarPlan(10000,'VIP 5')">
+onclick="comprarPlan(5000,'VIP 3')">
 Comprar
 </button>
 </div>
@@ -723,15 +649,14 @@ Comprar
 Saldo Disponible
 </div>
 
-<div class="balance"
-id="balance">
+<div class="balance" id="balance">
 S/ 10.00
 </div>
 
 <div class="wallet-actions">
 
 <button class="action-btn"
-onclick="depositar()">
+onclick="abrirDeposito()">
 💸 Depositar
 </button>
 
@@ -744,13 +669,33 @@ onclick="mostrarRetiro()">
 
 </div>
 
-<div class="card">
+<!-- DEPOSITO -->
+
+<div class="card"
+id="depositBox"
+style="display:none;">
 
 <h2>
-💳 Wallet TRC20
+💸 Realizar Depósito
 </h2>
 
 <br>
+
+<div class="input-group">
+<label>Monto</label>
+<input type="number"
+id="depositMonto">
+</div>
+
+<div class="input-group">
+<label>Red</label>
+
+<select>
+<option>TRC20</option>
+<option>BEP20</option>
+</select>
+
+</div>
 
 <div style="
 background:#08111f;
@@ -770,19 +715,20 @@ onclick="copiarWallet()">
 COPIAR WALLET
 </button>
 
+<button class="btn"
+onclick="confirmarDeposito()">
+CONFIRMAR DEPÓSITO
+</button>
+
 </div>
+
+<!-- REFERIDOS -->
 
 <div class="card">
 
 <h2>
-👥 Sistema de Referidos
+👥 Referidos 15%
 </h2>
-
-<br>
-
-<p>
-Gana <b>15%</b> de comisión por cada invitado.
-</p>
 
 <br>
 
@@ -806,7 +752,7 @@ border-radius:14px;
 border:1px solid #00ff95;
 ">
 
-Ganancias Referidos:
+Ganancias:
 <b id="refGanancias">
 S/ 0.00
 </b>
@@ -820,19 +766,7 @@ COPIAR LINK
 
 </div>
 
-<div class="card">
-
-<h2>
-📡 Actividad Global
-</h2>
-
-<br>
-
-<div class="live-box"
-id="liveBox">
-</div>
-
-</div>
+<!-- HISTORIAL -->
 
 <div class="card">
 
@@ -852,6 +786,8 @@ Sin movimientos todavía
 
 </div>
 
+<!-- RETIRO -->
+
 <div class="withdraw-form"
 id="withdrawForm">
 
@@ -859,34 +795,37 @@ id="withdrawForm">
 
 <div class="input-group">
 <label>Nombre Completo</label>
-<input type="text" id="nombreRetiro">
+<input type="text"
+id="nombreRetiro">
 </div>
 
 <div class="input-group">
 <label>DNI</label>
-<input type="number" id="dniRetiro">
+<input type="number"
+id="dniRetiro">
 </div>
 
 <div class="input-group">
 <label>Banco</label>
 
-<select id="bancoRetiro">
+<select>
 <option>BCP</option>
-<option>Interbank</option>
 <option>BBVA</option>
-<option>Scotiabank</option>
+<option>Interbank</option>
 </select>
 
 </div>
 
 <div class="input-group">
 <label>Número de Cuenta</label>
-<input type="number" id="cuentaRetiro">
+<input type="number"
+id="cuentaRetiro">
 </div>
 
 <div class="input-group">
 <label>Monto</label>
-<input type="number" id="montoRetiro">
+<input type="number"
+id="montoRetiro">
 </div>
 
 <button class="btn"
@@ -900,36 +839,59 @@ CONFIRMAR RETIRO
 
 </div>
 
+<!-- PERFIL -->
+
 <div id="profileTab"
 style="display:none;">
 
 <div class="card">
 
 <h2>
-👤 Mi Perfil
+👤 Perfil
 </h2>
 
 <br>
 
-<p>Nombre: <b id="perfilNombre"></b></p>
+<p>
+Nombre:
+<b id="perfilNombre"></b>
+</p>
+
 <br>
 
-<p>Apellido: <b id="perfilApellido"></b></p>
+<p>
+Apellido:
+<b id="perfilApellido"></b>
+</p>
+
 <br>
 
-<p>Teléfono: <b id="perfilTelefono"></b></p>
+<p>
+Teléfono:
+<b id="perfilTelefono"></b>
+</p>
+
 <br>
 
-<p>Correo: <b id="correoPerfil"></b></p>
+<p>
+Correo:
+<b id="correoPerfil"></b>
+</p>
+
 <br>
 
-<p>ID: <b id="perfilID"></b></p>
+<p>
+ID:
+<b id="perfilID"></b>
+</p>
 
 </div>
 
 </div>
 
 </div>
+
+<!-- MENU -->
 
 <div class="bottom">
 
@@ -958,32 +920,6 @@ let saldo = 10;
 let historial = [];
 let gananciasReferidos = 0;
 
-const movimientos = [
-"💸 Carlos depositó S/12,500",
-"🏦 Mariana retiró S/3,200",
-"🚀 Alex compró VIP 5",
-"💸 Fernando depositó S/22,000",
-"🏦 Lucia retiró S/1,450",
-"🚀 Ricardo compró VIP 3"
-];
-
-function generarID(){
-
-return "NSX" +
-Math.floor(
-10000000 + Math.random()*90000000
-);
-
-}
-
-function generarIQ(){
-
-return Math.floor(
-10000000 + Math.random()*90000000
-);
-
-}
-
 function toast(msg){
 
 const t =
@@ -1011,7 +947,8 @@ document.getElementById("topBalance")
 
 document.getElementById("refGanancias")
 .innerText =
-"S/ " + gananciasReferidos.toFixed(2);
+"S/ " +
+gananciasReferidos.toFixed(2);
 
 }
 
@@ -1043,59 +980,20 @@ ${item}
 
 }
 
-function actividadGlobal(){
+function generarID(){
 
-const box =
-document.getElementById("liveBox");
-
-setInterval(()=>{
-
-const item =
-movimientos[
-Math.floor(Math.random()*movimientos.length)
-];
-
-const div =
-document.createElement("div");
-
-div.className =
-"live-item";
-
-div.innerText = item;
-
-box.prepend(div);
-
-if(box.children.length > 8){
-
-box.removeChild(
-box.lastChild
+return "NSX" +
+Math.floor(
+10000000 + Math.random()*90000000
 );
 
 }
 
-},2000);
+function generarIQ(){
 
-}
-
-function copiarWallet(){
-
-navigator.clipboard.writeText(
-"TB1vZrQ5RFKTsfZc3VeckfPxf4tS6pAhF5"
+return Math.floor(
+10000000 + Math.random()*90000000
 );
-
-toast("Wallet copiada 🚀");
-
-}
-
-function copiarReferido(){
-
-const texto =
-document.getElementById("refLink")
-.innerText;
-
-navigator.clipboard.writeText(texto);
-
-toast("Link copiado 🚀");
 
 }
 
@@ -1137,28 +1035,44 @@ const pass =
 document.getElementById("registerPass").value;
 
 if(
-nombre === "" ||
-apellido === "" ||
-telefono === "" ||
-email === "" ||
-pass === ""
-){
+nombre===""||
+apellido===""||
+telefono===""||
+email===""||
+pass===""){
 
 toast("Completa todos los campos");
 return;
 
 }
 
-const id = generarID();
-const iq = generarIQ();
+localStorage.setItem(
+"userNombre",nombre
+);
 
-localStorage.setItem("userID",id);
-localStorage.setItem("userIQ",iq);
-localStorage.setItem("userNombre",nombre);
-localStorage.setItem("userApellido",apellido);
-localStorage.setItem("userTelefono",telefono);
-localStorage.setItem("userEmail",email);
-localStorage.setItem("userPass",pass);
+localStorage.setItem(
+"userApellido",apellido
+);
+
+localStorage.setItem(
+"userTelefono",telefono
+);
+
+localStorage.setItem(
+"userEmail",email
+);
+
+localStorage.setItem(
+"userPass",pass
+);
+
+localStorage.setItem(
+"userID",generarID()
+);
+
+localStorage.setItem(
+"userIQ",generarIQ()
+);
 
 toast("Cuenta creada 🚀");
 
@@ -1175,9 +1089,11 @@ const pass =
 document.getElementById("loginPass").value;
 
 if(
-email === localStorage.getItem("userEmail")
+email ===
+localStorage.getItem("userEmail")
 &&
-pass === localStorage.getItem("userPass")
+pass ===
+localStorage.getItem("userPass")
 ){
 
 document.getElementById("loginScreen")
@@ -1194,8 +1110,17 @@ document.getElementById("avatar")
 .innerText =
 localStorage
 .getItem("userNombre")
-.charAt(0)
-.toUpperCase();
+.charAt(0);
+
+document.getElementById("userID")
+.innerText =
+"ID: " +
+localStorage.getItem("userID");
+
+document.getElementById("userIQ")
+.innerText =
+"IQ: " +
+localStorage.getItem("userIQ");
 
 document.getElementById("perfilNombre")
 .innerText =
@@ -1217,30 +1142,17 @@ document.getElementById("perfilID")
 .innerText =
 localStorage.getItem("userID");
 
-document.getElementById("userID")
+document.getElementById("refLink")
 .innerText =
-"ID: " +
-localStorage.getItem("userID");
-
-document.getElementById("userIQ")
-.innerText =
-"IQ: " +
-localStorage.getItem("userIQ");
-
-const ref =
-window.location.origin +
-window.location.pathname +
+window.location.href +
 "?ref=" +
 localStorage.getItem("userID");
-
-document.getElementById("refLink")
-.innerText = ref;
 
 toast("Bienvenido 🚀");
 
 }else{
 
-toast("Correo o contraseña incorrectos");
+toast("Datos incorrectos");
 
 }
 
@@ -1261,30 +1173,33 @@ document.getElementById(id)
 .style.display = "block";
 
 document.querySelectorAll(".nav")
-.forEach(n=>n.classList.remove("active"));
+.forEach(n=>{
+n.classList.remove("active");
+});
 
 btn.classList.add("active");
 
 }
 
-function depositar(){
+function abrirDeposito(){
 
-let monto =
-prompt("Ingrese el monto a depositar");
+document.getElementById("depositBox")
+.style.display = "block";
 
-if(monto === null){
-return;
 }
 
-monto = monto.replace(",", ".");
+function confirmarDeposito(){
 
-const valor =
-parseFloat(monto);
+const monto =
+parseFloat(
+document.getElementById("depositMonto")
+.value
+);
 
 if(
-isNaN(valor)
+isNaN(monto)
 ||
-valor <= 0
+monto <= 0
 ){
 
 toast("Monto inválido");
@@ -1292,26 +1207,50 @@ return;
 
 }
 
-saldo += valor;
+saldo += monto;
 
 const comision =
-valor * 0.15;
+monto * 0.15;
 
 gananciasReferidos += comision;
 
 actualizarSaldo();
 
 historial.unshift(
-`💸 Depósito +S/ ${valor.toFixed(2)}`
+`💸 Depósito +S/ ${monto.toFixed(2)}`
 );
 
 historial.unshift(
-`👥 Referidos 15% +S/ ${comision.toFixed(2)}`
+`👥 Comisión 15% +S/ ${comision.toFixed(2)}`
 );
 
 actualizarHistorial();
 
+document.getElementById("depositMonto")
+.value = "";
+
 toast("Depósito realizado 🚀");
+
+}
+
+function copiarWallet(){
+
+navigator.clipboard.writeText(
+"TB1vZrQ5RFKTsfZc3VeckfPxf4tS6pAhF5"
+);
+
+toast("Wallet copiada 🚀");
+
+}
+
+function copiarReferido(){
+
+navigator.clipboard.writeText(
+document.getElementById("refLink")
+.innerText
+);
+
+toast("Link copiado 🚀");
 
 }
 
@@ -1326,10 +1265,15 @@ function procesarRetiro(){
 
 const monto =
 parseFloat(
-document.getElementById("montoRetiro").value
+document.getElementById("montoRetiro")
+.value
 );
 
-if(isNaN(monto)){
+if(
+isNaN(monto)
+||
+monto <= 0
+){
 
 toast("Monto inválido");
 return;
@@ -1353,9 +1297,6 @@ historial.unshift(
 
 actualizarHistorial();
 
-document.getElementById("withdrawForm")
-.style.display = "none";
-
 toast("Retiro enviado ✅");
 
 }
@@ -1374,16 +1315,15 @@ saldo -= precio;
 actualizarSaldo();
 
 historial.unshift(
-`🚀 Plan activado: ${nombre}`
+`🚀 Plan comprado: ${nombre}`
 );
 
 actualizarHistorial();
 
-toast(`${nombre} activado 🚀`);
+toast(nombre + " activado 🚀");
 
 }
 
-actividadGlobal();
 actualizarSaldo();
 
 </script>
