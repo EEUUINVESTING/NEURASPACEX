@@ -1,8 +1,14 @@
+<!-- ========================================= -->
+<!--      NEURASPACEX - INDEX COMPLETO         -->
+<!-- ========================================= -->
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>NEURASPACEX</title>
 
 <style>
@@ -15,22 +21,25 @@ font-family:Arial,sans-serif;
 }
 
 body{
-background:#020817;
+background:#080808;
 overflow:hidden;
 height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
+color:white;
 }
+
+/* FONDO */
 
 .space-bg{
 position:fixed;
 width:100%;
 height:100%;
 overflow:hidden;
-z-index:-2;
+z-index:-5;
 background:
-radial-gradient(circle at top,#0b1f46,#020817 70%);
+radial-gradient(circle at top,#420000,#090909 70%);
 }
 
 .stars{
@@ -38,10 +47,10 @@ position:absolute;
 width:100%;
 height:100%;
 background-image:
-radial-gradient(white 1px, transparent 1px);
-background-size:50px 50px;
+radial-gradient(rgba(255,255,255,0.8) 1px, transparent 1px);
+background-size:40px 40px;
 animation:starsMove 80s linear infinite;
-opacity:0.4;
+opacity:0.25;
 }
 
 @keyframes starsMove{
@@ -53,13 +62,73 @@ transform:translateY(-500px);
 }
 }
 
+/* SPLASH */
+
+#splash{
+position:fixed;
+inset:0;
+background:#000;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+z-index:99999;
+animation:fadeOut 1s ease 4s forwards;
+}
+
+#splash h1{
+font-size:46px;
+color:#ff1a1a;
+text-shadow:0 0 25px #ff0000;
+margin-top:20px;
+}
+
+#splash p{
+margin-top:10px;
+color:#ccc;
+font-size:14px;
+}
+
+.bigRocket{
+font-size:120px;
+animation:rocketEntry 4s ease forwards;
+filter:drop-shadow(0 0 30px #ff0000);
+}
+
+@keyframes rocketEntry{
+
+0%{
+transform:translateY(400px) scale(0.5);
+opacity:0;
+}
+
+50%{
+opacity:1;
+}
+
+100%{
+transform:translateY(-40px) scale(1);
+opacity:1;
+}
+
+}
+
+@keyframes fadeOut{
+to{
+opacity:0;
+visibility:hidden;
+}
+}
+
+/* COHETE FLOTANTE */
+
 .rocket{
 position:absolute;
 bottom:-100px;
-right:20px;
+right:10px;
 font-size:75px;
 animation:rocketFly 12s linear infinite;
-filter:drop-shadow(0 0 20px #00d9ff);
+filter:drop-shadow(0 0 20px #ff0000);
 }
 
 @keyframes rocketFly{
@@ -90,15 +159,18 @@ opacity:0;
 
 }
 
+/* APP */
+
 .app{
 width:100%;
 max-width:430px;
 height:100vh;
-background:rgba(8,17,31,0.96);
-backdrop-filter:blur(15px);
-color:white;
+background:rgba(18,0,0,0.94);
+backdrop-filter:blur(12px);
 overflow:hidden;
 position:relative;
+border-left:1px solid rgba(255,0,0,0.2);
+border-right:1px solid rgba(255,0,0,0.2);
 }
 
 .screen{
@@ -111,6 +183,8 @@ flex-direction:column;
 display:flex;
 }
 
+/* LOGIN */
+
 .auth{
 justify-content:center;
 padding:30px 20px;
@@ -119,18 +193,20 @@ overflow-y:auto;
 
 .logo{
 text-align:center;
-margin-bottom:40px;
+margin-bottom:35px;
 }
 
 .logo h1{
 font-size:42px;
-color:#00d9ff;
-text-shadow:0 0 20px #00d9ff;
+color:#ff1a1a;
+text-shadow:0 0 25px #ff0000;
 }
 
 .logo p{
-color:#aaa;
 margin-top:10px;
+color:#bbb;
+font-size:13px;
+line-height:1.5;
 }
 
 .input-group{
@@ -150,11 +226,16 @@ width:100%;
 padding:16px;
 border:none;
 border-radius:16px;
-background:#111b2d;
+background:#180909;
 color:white;
 font-size:15px;
-border:1px solid #233554;
+border:1px solid #451111;
 outline:none;
+}
+
+.input-group input:focus{
+border:1px solid #ff0000;
+box-shadow:0 0 12px rgba(255,0,0,0.4);
 }
 
 .btn{
@@ -164,8 +245,8 @@ border:none;
 border-radius:16px;
 background:linear-gradient(
 90deg,
-#00d9ff,
-#006eff
+#ff0000,
+#990000
 );
 color:white;
 font-size:15px;
@@ -176,8 +257,8 @@ margin-top:10px;
 }
 
 .btn:hover{
-transform:scale(1.03);
-box-shadow:0 0 25px rgba(0,217,255,0.5);
+transform:scale(1.02);
+box-shadow:0 0 20px rgba(255,0,0,0.5);
 }
 
 .switch{
@@ -187,18 +268,20 @@ color:#aaa;
 }
 
 .switch span{
-color:#00d9ff;
+color:#ff2b2b;
 font-weight:bold;
 cursor:pointer;
 }
+
+/* HEADER */
 
 .header{
 padding:16px;
 display:flex;
 justify-content:space-between;
 align-items:center;
-border-bottom:1px solid #1d2c46;
-background:#08111f;
+border-bottom:1px solid #2c0c0c;
+background:#110000;
 }
 
 .user-box{
@@ -208,16 +291,17 @@ gap:10px;
 }
 
 .avatar{
-width:48px;
-height:48px;
+width:50px;
+height:50px;
 border-radius:50%;
-background:#00d9ff;
+background:#ff0000;
 display:flex;
 justify-content:center;
 align-items:center;
 font-weight:bold;
-color:black;
+color:white;
 font-size:18px;
+box-shadow:0 0 20px rgba(255,0,0,0.5);
 }
 
 .user-info{
@@ -231,6 +315,8 @@ color:#aaa;
 font-size:11px;
 }
 
+/* CONTENT */
+
 .content{
 flex:1;
 overflow-y:auto;
@@ -238,17 +324,19 @@ padding:15px;
 padding-bottom:110px;
 }
 
+/* BANNERS */
+
 .banner{
 background:linear-gradient(
 90deg,
-#001a35,
-#003566
+#1d0000,
+#450000
 );
 padding:18px;
 border-radius:20px;
-border:1px solid #00d9ff;
+border:1px solid #ff1a1a;
 margin-bottom:15px;
-box-shadow:0 0 20px rgba(0,217,255,0.2);
+box-shadow:0 0 20px rgba(255,0,0,0.15);
 }
 
 .banner h2{
@@ -258,18 +346,20 @@ margin-bottom:8px;
 
 .banner p{
 font-size:13px;
-color:#ddd;
 line-height:1.5;
+color:#ddd;
 }
+
+/* CARD */
 
 .card,
 .plan{
-background:#101a2f;
+background:#130707;
 border-radius:20px;
 padding:18px;
 margin-bottom:15px;
-border:1px solid #233554;
-box-shadow:0 0 15px rgba(0,217,255,0.1);
+border:1px solid #381111;
+box-shadow:0 0 10px rgba(255,0,0,0.08);
 }
 
 .plan{
@@ -281,7 +371,7 @@ transition:0.3s;
 
 .plan:hover{
 transform:translateY(-4px);
-box-shadow:0 0 25px rgba(0,217,255,0.3);
+box-shadow:0 0 20px rgba(255,0,0,0.25);
 }
 
 .plan-title{
@@ -291,7 +381,7 @@ font-weight:bold;
 
 .plan-profit{
 font-size:13px;
-color:#00ff95;
+color:#00ff84;
 margin-top:4px;
 }
 
@@ -299,18 +389,25 @@ margin-top:4px;
 padding:12px 14px;
 border:none;
 border-radius:14px;
-background:#00d9ff;
-color:black;
+background:#ff0000;
+color:white;
 font-weight:bold;
 cursor:pointer;
 transition:0.3s;
+}
+
+.buy-btn:hover{
+background:#ff2b2b;
 }
 
 .balance{
 font-size:35px;
 font-weight:bold;
 margin-top:10px;
+color:#00ff84;
 }
+
+/* ACTIONS */
 
 .wallet-actions{
 display:grid;
@@ -323,17 +420,19 @@ margin-top:15px;
 padding:15px;
 border:none;
 border-radius:16px;
-background:#16243c;
+background:#1b0909;
 color:white;
 font-weight:bold;
 cursor:pointer;
 transition:0.3s;
+border:1px solid #3a0f0f;
 }
 
 .action-btn:hover{
-background:#00d9ff;
-color:black;
+background:#ff0000;
 }
+
+/* MENU */
 
 .bottom{
 position:absolute;
@@ -343,10 +442,10 @@ transform:translateX(-50%);
 width:92%;
 display:flex;
 justify-content:space-around;
-background:rgba(10,20,35,0.95);
+background:rgba(22,0,0,0.95);
 padding:12px;
 border-radius:25px;
-border:1px solid #1f3658;
+border:1px solid #381111;
 }
 
 .nav{
@@ -355,7 +454,7 @@ margin:0 5px;
 padding:14px;
 border:none;
 border-radius:18px;
-background:#101a2f;
+background:#170707;
 color:#aaa;
 font-size:13px;
 font-weight:bold;
@@ -365,19 +464,21 @@ cursor:pointer;
 .nav.active{
 background:linear-gradient(
 90deg,
-#00d9ff,
-#006eff
+#ff0000,
+#700000
 );
 color:white;
 }
+
+/* TOAST */
 
 .toast{
 position:fixed;
 bottom:120px;
 left:50%;
 transform:translateX(-50%);
-background:#00d9ff;
-color:black;
+background:#ff0000;
+color:white;
 padding:14px 20px;
 border-radius:14px;
 font-weight:bold;
@@ -385,18 +486,18 @@ display:none;
 z-index:999;
 }
 
+/* HISTORIAL */
+
 .history-item{
 padding:12px;
-background:#08111f;
+background:#110707;
 border-radius:12px;
 margin-bottom:10px;
-border:1px solid #1d2c46;
+border:1px solid #2b1010;
+font-size:13px;
 }
 
-.withdraw-form{
-display:none;
-margin-top:15px;
-}
+/* LIVE */
 
 .live-box{
 height:220px;
@@ -405,11 +506,45 @@ overflow:hidden;
 
 .live-item{
 padding:10px;
-background:#08111f;
+background:#110707;
 border-radius:10px;
 margin-bottom:8px;
 font-size:13px;
-border:1px solid #1d2c46;
+border:1px solid #2d1010;
+}
+
+/* SUPPORT */
+
+.support-box{
+background:#140909;
+padding:15px;
+border-radius:18px;
+border:1px solid #421515;
+margin-top:15px;
+}
+
+.support-box p{
+font-size:13px;
+line-height:1.6;
+color:#ddd;
+}
+
+/* TERMS */
+
+.terms{
+background:#120707;
+padding:15px;
+border-radius:18px;
+margin-top:15px;
+border:1px solid #401111;
+font-size:12px;
+line-height:1.7;
+color:#bbb;
+}
+
+.terms h3{
+margin-bottom:10px;
+color:#ff2b2b;
 }
 
 </style>
@@ -417,7 +552,26 @@ border:1px solid #1d2c46;
 
 <body>
 
+<!-- SPLASH -->
+
+<div id="splash">
+
+<div class="bigRocket">
+🚀
+</div>
+
+<h1>NEURASPACEX</h1>
+
+<p>
+Cargando plataforma espacial...
+</p>
+
+</div>
+
+<!-- FONDO -->
+
 <div class="space-bg">
+
 <div class="stars"></div>
 
 <div class="rocket">
@@ -426,7 +580,11 @@ border:1px solid #1d2c46;
 
 </div>
 
+<!-- TOAST -->
+
 <div class="toast" id="toast"></div>
+
+<!-- APP -->
 
 <div class="app">
 
@@ -435,10 +593,14 @@ border:1px solid #1d2c46;
 <div class="screen active auth" id="loginScreen">
 
 <div class="logo">
+
 <h1>NEURASPACEX</h1>
+
 <p>
-Viajes espaciales Marte 2035. Reutilización de cohetes Futuras misiones a Marte: Han proyectado que, gracias a la flota Starship, el costo inicial por persona para emigrar a una colonia marciana podría reducirse hasta los $500.000 dólares.  🚀
+Bienvenido a la plataforma tecnológica espacial de nueva generación.
+Más de 600 usuarios registrados 🚀
 </p>
+
 </div>
 
 <div class="input-group">
@@ -469,8 +631,13 @@ Registrarse
 <div class="screen auth" id="registerScreen">
 
 <div class="logo">
+
 <h1>CREAR CUENTA</h1>
-<p>Bono de bienvenida S/10</p>
+
+<p>
+🎁 Bono de bienvenida S/10
+</p>
+
 </div>
 
 <div class="input-group">
@@ -530,11 +697,11 @@ Usuario
 </b>
 
 <small id="userID">
-ID: 24658595
+ID: NSX000
 </small>
 
 <small id="userIQ">
-IQ: 52458125
+IQ: 00000000
 </small>
 
 </div>
@@ -548,7 +715,7 @@ Saldo
 </div>
 
 <div id="topBalance"
-style="font-weight:bold;color:#00ff95;">
+style="font-weight:bold;color:#00ff84;">
 S/ 10.00
 </div>
 
@@ -558,18 +725,27 @@ S/ 10.00
 
 <div class="content">
 
+<!-- BANNERS -->
+
 <div class="banner">
-<h2>📱 Lanzamiento Oficial</h2>
+<h2>🚀 Lanzamiento Oficial</h2>
 <p>
-Play Store y App Store el
+Aplicación disponible en Play Store y App Store el
 <b>25 de Junio de 2026</b>
 </p>
 </div>
 
 <div class="banner">
-<h2>🚀 Proyecto Marte 2035</h2>
+<h2>🌍 Proyecto Marte 2035</h2>
 <p>
-Más de <b>600 usuarios</b> registrados.
+NEURASPACEX desarrolla sistemas tecnológicos espaciales y expansión interplanetaria.
+</p>
+</div>
+
+<div class="banner">
+<h2>🛡 Plataforma Regulada</h2>
+<p>
+Empresa registrada bajo regulación SEC/FINRA en EE.UU., FCA Reino Unido y CySEC Europa.
 </p>
 </div>
 
@@ -580,61 +756,145 @@ Más de <b>600 usuarios</b> registrados.
 <div class="plan">
 <div>
 <div class="plan-title">
-VIP 0 - S/500.00
+VIP 0 - S/500
 </div>
 <div class="plan-profit">
 Ganancia diaria S/33.70
 </div>
 </div>
+
 <button class="buy-btn"
 onclick="comprarPlan(500,'VIP 0')">
 Comprar
 </button>
+
 </div>
 
 <div class="plan">
+
 <div>
 <div class="plan-title">
-VIP 1 - S/750.00
+VIP 1 - S/750
 </div>
+
 <div class="plan-profit">
 Ganancia diaria S/53.70
 </div>
 </div>
+
 <button class="buy-btn"
-onclick="comprarPlan(1000,'VIP 1')">
+onclick="comprarPlan(750,'VIP 1')">
 Comprar
 </button>
+
 </div>
 
 <div class="plan">
+
 <div>
 <div class="plan-title">
-VIP 2 - S/1,000.00
+VIP 2 - S/1000
 </div>
+
 <div class="plan-profit">
 Ganancia diaria S/73.70
 </div>
 </div>
+
 <button class="buy-btn"
-onclick="comprarPlan(2500,'VIP 2')">
+onclick="comprarPlan(1000,'VIP 2')">
 Comprar
 </button>
+
 </div>
 
 <div class="plan">
+
 <div>
 <div class="plan-title">
-VIP 3 - S/1,500.00
+VIP 3 - S/1500
 </div>
+
 <div class="plan-profit">
 Ganancia diaria S/120.70
 </div>
 </div>
+
 <button class="buy-btn"
-onclick="comprarPlan(5000,'VIP 3')">
+onclick="comprarPlan(1500,'VIP 3')">
 Comprar
 </button>
+
+</div>
+
+<!-- LIVE -->
+
+<div class="card">
+
+<h2>
+📡 Actividad Global
+</h2>
+
+<br>
+
+<div class="live-box" id="liveBox">
+
+<div class="live-item">
+🚀 Usuario de Perú activó VIP 2
+</div>
+
+<div class="live-item">
+💸 Depósito confirmado S/1,500
+</div>
+
+<div class="live-item">
+🏦 Retiro procesado correctamente
+</div>
+
+<div class="live-item">
+👥 Nuevo usuario registrado
+</div>
+
+<div class="live-item">
+🚀 VIP 3 comprado exitosamente
+</div>
+
+</div>
+
+</div>
+
+<!-- TERMINOS -->
+
+<div class="terms">
+
+<h3>
+📜 Términos y Condiciones
+</h3>
+
+<p>
+• Los retiros están habilitados de miércoles a sábado de 10:00 AM a 3:00 PM.
+</p>
+
+<p>
+• El retiro mínimo permitido es de S/50 soles.
+</p>
+
+<p>
+• Los depósitos son verificados automáticamente por el sistema.
+</p>
+
+<p>
+• Toda actividad sospechosa puede ser revisada por seguridad.
+</p>
+
+<p>
+• La empresa se reserva el derecho de suspender cuentas fraudulentas.
+</p>
+
+<p>
+• Los usuarios deben proteger sus credenciales de acceso.
+</p>
+
 </div>
 
 </div>
@@ -683,8 +943,7 @@ style="display:none;">
 
 <div class="input-group">
 <label>Monto</label>
-<input type="number"
-id="depositMonto">
+<input type="number" id="depositMonto">
 </div>
 
 <div class="input-group">
@@ -698,11 +957,11 @@ id="depositMonto">
 </div>
 
 <div style="
-background:#08111f;
+background:#0d0000;
 padding:14px;
 border-radius:14px;
 word-break:break-all;
-border:1px solid #00d9ff;
+border:1px solid #ff0000;
 font-size:13px;
 ">
 
@@ -734,11 +993,11 @@ CONFIRMAR DEPÓSITO
 
 <div id="refLink"
 style="
-background:#08111f;
+background:#0d0000;
 padding:14px;
 border-radius:14px;
 word-break:break-all;
-border:1px solid #00d9ff;
+border:1px solid #ff0000;
 font-size:12px;
 ">
 </div>
@@ -746,10 +1005,10 @@ font-size:12px;
 <br>
 
 <div style="
-background:#08111f;
+background:#0d0000;
 padding:14px;
 border-radius:14px;
-border:1px solid #00ff95;
+border:1px solid #00ff84;
 ">
 
 Ganancias:
@@ -788,21 +1047,24 @@ Sin movimientos todavía
 
 <!-- RETIRO -->
 
-<div class="withdraw-form"
-id="withdrawForm">
+<div class="card"
+id="withdrawForm"
+style="display:none;">
 
-<div class="card">
+<h2>
+🏦 Solicitud de Retiro
+</h2>
+
+<br>
 
 <div class="input-group">
 <label>Nombre Completo</label>
-<input type="text"
-id="nombreRetiro">
+<input type="text" id="nombreRetiro">
 </div>
 
 <div class="input-group">
 <label>DNI</label>
-<input type="number"
-id="dniRetiro">
+<input type="number" id="dniRetiro">
 </div>
 
 <div class="input-group">
@@ -812,20 +1074,19 @@ id="dniRetiro">
 <option>BCP</option>
 <option>BBVA</option>
 <option>Interbank</option>
+<option>Scotiabank</option>
 </select>
 
 </div>
 
 <div class="input-group">
 <label>Número de Cuenta</label>
-<input type="number"
-id="cuentaRetiro">
+<input type="number" id="cuentaRetiro">
 </div>
 
 <div class="input-group">
 <label>Monto</label>
-<input type="number"
-id="montoRetiro">
+<input type="number" id="montoRetiro">
 </div>
 
 <button class="btn"
@@ -834,6 +1095,32 @@ CONFIRMAR RETIRO
 </button>
 
 </div>
+
+<!-- SOPORTE -->
+
+<div class="support-box">
+
+<h2>
+🛟 Soporte 24/7
+</h2>
+
+<br>
+
+<p>
+📩 soporte@neuraspacex.com
+</p>
+
+<p>
+📞 Atención global disponible
+</p>
+
+<p>
+🛰 Sistema de monitoreo automático activo
+</p>
+
+<p>
+🔒 Seguridad avanzada y cifrado de datos
+</p>
 
 </div>
 
@@ -913,6 +1200,8 @@ onclick="showTab('profileTab',this)">
 </div>
 
 </div>
+
+<!-- SCRIPT -->
 
 <script>
 
@@ -1276,6 +1565,13 @@ monto <= 0
 ){
 
 toast("Monto inválido");
+return;
+
+}
+
+if(monto < 50){
+
+toast("Retiro mínimo S/50");
 return;
 
 }
