@@ -1,0 +1,10 @@
+body{
+    background:
+    radial-gradient(circle at top,#3b82f6 0%,#0b1020 45%,#020617 100%);
+    overflow:hidden;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:white;
+}
