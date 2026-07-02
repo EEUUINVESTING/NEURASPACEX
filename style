@@ -1,326 +1,35 @@
-/*==========================================
-      GLASSMORPHISM IPHONE BLUE
-==========================================*/
-
-/* Fondo */
-
-body{
-background:
-radial-gradient(circle at top,#3b82f6 0%,#16213e 35%,#020617 100%) !important;
-}
-
-/* Fondo espacial */
-
-.space-bg{
-background:
-radial-gradient(circle at top,#60a5fa 0%,#2563eb 35%,#020617 100%) !important;
-}
-
-/* APP */
-
-.app{
-
-background:rgba(12,25,60,.45)!important;
-
-backdrop-filter:blur(35px);
-
--webkit-backdrop-filter:blur(35px);
-
-border:1px solid rgba(255,255,255,.08);
-
-box-shadow:
-
-0 20px 60px rgba(0,80,255,.25),
-
-inset 0 1px rgba(255,255,255,.15);
-
-}
-
-/* Header */
-
-.header{
-
-background:rgba(15,25,60,.45)!important;
-
-backdrop-filter:blur(25px);
-
-border-bottom:1px solid rgba(255,255,255,.08);
-
-}
-
-/* Cards */
-
-.card,
-.plan,
-.banner,
-.support-box,
-.terms{
-
-background:
-
-rgba(30,45,90,.28)!important;
-
-backdrop-filter:blur(28px);
-
--webkit-backdrop-filter:blur(28px);
-
-border:1px solid rgba(255,255,255,.10);
-
-box-shadow:
-
-0 10px 40px rgba(0,170,255,.18);
-
-transition:.35s;
-
-}
-
-/* Hover */
-
-.card:hover,
-.plan:hover,
-.banner:hover{
-
-transform:translateY(-5px);
-
-box-shadow:
-
-0 18px 50px rgba(0,170,255,.35);
-
-}
-
-/* INPUTS */
-
-.input-group input,
-.input-group select{
-
-background:rgba(255,255,255,.06)!important;
-
-border:1px solid rgba(255,255,255,.10)!important;
-
-color:#fff;
-
-backdrop-filter:blur(20px);
-
-}
-
-.input-group input:focus,
-.input-group select:focus{
-
-border-color:#5ac8fa!important;
-
-box-shadow:
-
-0 0 20px rgba(0,170,255,.45);
-
-}
-
-/* BOTONES GLOSS */
-
-.btn,
-.buy-btn,
-.action-btn,
-.nav{
+.btn{
 
 position:relative;
 
 overflow:hidden;
 
 background:
-
 linear-gradient(
 180deg,
-rgba(255,255,255,.45),
-rgba(255,255,255,.05)
-),
-
-linear-gradient(
-135deg,
-#4facfe,
-#2563eb
-)!important;
-
-border:none;
-
-border-radius:18px;
-
-color:#fff!important;
-
-box-shadow:
-
-0 10px 30px rgba(0,150,255,.40),
-
-inset 0 1px rgba(255,255,255,.45),
-
-inset 0 -2px rgba(0,0,0,.15);
-
-transition:.35s;
-
-}
-
-/* Reflejo */
-
-.btn::before,
-.buy-btn::before,
-.action-btn::before,
-.nav::before{
-
-content:"";
-
-position:absolute;
-
-left:-130%;
-
-top:0;
-
-width:60%;
-
-height:100%;
-
-background:
-
-linear-gradient(
-
-90deg,
-
-transparent,
-
-rgba(255,255,255,.75),
-
-transparent
-
+rgba(255,255,255,.35),
+rgba(255,255,255,.06)
 );
 
-transform:skewX(-25deg);
+backdrop-filter:
+blur(45px)
+saturate(220%);
 
-transition:1s;
+-webkit-backdrop-filter:
+blur(45px)
+saturate(220%);
 
-}
+border:1px solid
+rgba(255,255,255,.30);
 
-.btn:hover::before,
-.buy-btn:hover::before,
-.action-btn:hover::before,
-.nav:hover::before{
-
-left:180%;
-
-}
-
-/* Hover botones */
-
-.btn:hover,
-.buy-btn:hover,
-.action-btn:hover,
-.nav:hover{
-
-transform:
-
-translateY(-3px)
-
-scale(1.03);
+border-radius:22px;
 
 box-shadow:
 
-0 15px 35px rgba(0,170,255,.55);
+0 20px 60px rgba(0,90,255,.30),
 
-}
+inset 0 1px 1px rgba(255,255,255,.80),
 
-/* Botón activo */
-
-.nav.active{
-
-background:
-
-linear-gradient(
-135deg,
-#60a5fa,
-#2563eb
-)!important;
-
-color:white!important;
-
-}
-
-/* Avatar */
-
-.avatar{
-
-background:
-
-linear-gradient(
-135deg,
-#60a5fa,
-#2563eb
-)!important;
-
-box-shadow:
-
-0 0 25px rgba(0,170,255,.5);
-
-}
-
-/* Balance */
-
-.balance{
-
-background:
-
-linear-gradient(
-90deg,
-#7dd3fc,
-#ffffff
-);
-
--webkit-background-clip:text;
-
--webkit-text-fill-color:transparent;
-
-}
-
-/* Toast */
-
-.toast{
-
-background:rgba(37,99,235,.90)!important;
-
-backdrop-filter:blur(20px);
-
-border:1px solid rgba(255,255,255,.15);
-
-}
-
-/* Historial */
-
-.history-item,
-.live-item{
-
-background:rgba(255,255,255,.05)!important;
-
-border:1px solid rgba(255,255,255,.08);
-
-}
-
-/* Flotación */
-
-@keyframes glassFloat{
-
-0%,100%{
-
-transform:translateY(0);
-
-}
-
-50%{
-
-transform:translateY(-3px);
-
-}
-
-}
-
-.card,
-.plan,
-.banner{
-
-animation:glassFloat 4s ease-in-out infinite;
+inset 0 -2px 2px rgba(255,255,255,.10);
 
 }
