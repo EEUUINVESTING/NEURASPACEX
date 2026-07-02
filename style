@@ -1,36 +1,106 @@
-.btn{
+/* ==========================================
+   NEURASPACEX - LIQUID GLASS (iOS Inspired)
+   Pega este archivo DESPUÉS de tu CSS original.
+========================================== */
 
-position:relative;
-
-overflow:hidden;
-
-background:
-linear-gradient(
-180deg,
-rgba(255,255,255,.35),
-rgba(255,255,255,.06)
-);
-
-backdrop-filter:
-blur(45px)
-saturate(220%);
-
--webkit-backdrop-filter:
-blur(45px)
-saturate(220%);
-
-border:1px solid
-rgba(255,255,255,.30);
-
-border-radius:22px;
-
-box-shadow:
-
-0 20px 60px rgba(0,90,255,.30),
-
-inset 0 1px 1px rgba(255,255,255,.80),
-
-inset 0 -2px 2px rgba(255,255,255,.10);
-
+body{
+background:radial-gradient(circle at top,#4da3ff 0%,#0d1f4d 45%,#020617 100%)!important;
 }
-<link rel="stylesheet" href="liquid-glass-ios26.css"> 
+
+.space-bg{
+background:
+radial-gradient(circle at 20% 0%,rgba(120,190,255,.45),transparent 35%),
+radial-gradient(circle at 80% 20%,rgba(0,140,255,.25),transparent 35%),
+linear-gradient(180deg,#102a5f,#030816)!important;
+}
+
+.app,.header,.bottom,.card,.plan,.banner,.support-box,.terms{
+background:linear-gradient(180deg,
+rgba(255,255,255,.18),
+rgba(255,255,255,.06))!important;
+backdrop-filter:blur(40px) saturate(180%);
+-webkit-backdrop-filter:blur(40px) saturate(180%);
+border:1px solid rgba(255,255,255,.18)!important;
+box-shadow:0 20px 50px rgba(0,70,255,.22),
+inset 0 1px rgba(255,255,255,.35),
+inset 0 -1px rgba(255,255,255,.08);
+position:relative;
+overflow:hidden;
+}
+
+.card::before,.plan::before,.banner::before,
+.support-box::before,.terms::before,
+.btn::before,.buy-btn::before,.action-btn::before,.nav::before{
+content:"";
+position:absolute;
+inset:0;
+background:linear-gradient(120deg,
+rgba(255,255,255,.40) 0%,
+rgba(255,255,255,.15) 25%,
+transparent 45%,
+rgba(255,255,255,.08) 70%,
+transparent 100%);
+pointer-events:none;
+}
+
+.btn,.buy-btn,.action-btn,.nav{
+position:relative;
+overflow:hidden;
+background:linear-gradient(180deg,
+rgba(255,255,255,.28),
+rgba(255,255,255,.08))!important;
+border:1px solid rgba(255,255,255,.22)!important;
+color:#fff!important;
+border-radius:22px!important;
+backdrop-filter:blur(40px) saturate(220%);
+-webkit-backdrop-filter:blur(40px) saturate(220%);
+box-shadow:
+0 15px 40px rgba(0,120,255,.35),
+inset 0 1px rgba(255,255,255,.75),
+inset 0 -2px rgba(255,255,255,.08);
+transition:.35s;
+}
+
+.btn::after,.buy-btn::after,.action-btn::after,.nav::after{
+content:"";
+position:absolute;
+left:8%;
+top:6%;
+width:84%;
+height:42%;
+border-radius:40px;
+background:rgba(255,255,255,.45);
+filter:blur(10px);
+pointer-events:none;
+}
+
+.btn:hover,.buy-btn:hover,.action-btn:hover,.nav:hover{
+transform:translateY(-2px) scale(1.02);
+box-shadow:0 20px 45px rgba(70,170,255,.45),
+inset 0 1px rgba(255,255,255,.8);
+}
+
+.input-group input,.input-group select{
+background:rgba(255,255,255,.08)!important;
+border:1px solid rgba(255,255,255,.16)!important;
+color:#fff!important;
+backdrop-filter:blur(30px);
+}
+
+.avatar{
+background:linear-gradient(135deg,#6ec6ff,#2563eb)!important;
+box-shadow:0 0 30px rgba(90,180,255,.5);
+}
+
+.nav.active{
+background:linear-gradient(180deg,
+rgba(255,255,255,.35),
+rgba(90,180,255,.18))!important;
+}
+
+.balance{
+background:linear-gradient(90deg,#7dd3fc,#fff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+<link rel="stylesheet" href="liquid-glass-ios26.css">
