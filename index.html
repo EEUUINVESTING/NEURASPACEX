@@ -1,5 +1,6 @@
+```html
 <!-- ========================================= -->
-<!--      NEURASPACEX - INDEX COMPLETO         -->
+<!--       NYX TECHNOLOGIES INC. - INDEX      -->
 <!-- ========================================= -->
 
 <!DOCTYPE html>
@@ -9,7 +10,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>NEURASPACEX</title>
+<title>NYX Technologies Inc.</title>
 
 <style>
 
@@ -21,7 +22,7 @@ font-family:Arial,sans-serif;
 }
 
 body{
-background:#080808;
+background:#050505;
 overflow:hidden;
 height:100vh;
 display:flex;
@@ -39,7 +40,7 @@ height:100%;
 overflow:hidden;
 z-index:-5;
 background:
-radial-gradient(circle at top,#0b4ea2,#090909 70%);
+radial-gradient(circle at top,#101c32,#050505 70%);
 }
 
 .stars{
@@ -50,7 +51,7 @@ background-image:
 radial-gradient(rgba(255,255,255,0.8) 1px, transparent 1px);
 background-size:40px 40px;
 animation:starsMove 80s linear infinite;
-opacity:0.25;
+opacity:0.18;
 }
 
 @keyframes starsMove{
@@ -78,27 +79,33 @@ animation:fadeOut 1s ease 4s forwards;
 
 #splash h1{
 font-size:46px;
-color:#33bbff;
-text-shadow:0 0 25px #00a2ff;
+color:#8ab4ff;
+text-shadow:0 0 25px #397bff;
 margin-top:20px;
+letter-spacing:4px;
 }
 
 #splash p{
 margin-top:10px;
-color:#ccc;
+color:#aaa;
 font-size:14px;
 }
 
-.bigRocket{
-font-size:120px;
-animation:rocketEntry 4s ease forwards;
-filter:drop-shadow(0 0 30px #00a2ff);
+.bigLogo{
+font-size:100px;
+font-weight:bold;
+letter-spacing:10px;
+color:white;
+text-shadow:
+0 0 20px #397bff,
+0 0 50px #397bff;
+animation:logoEntry 3s ease forwards;
 }
 
-@keyframes rocketEntry{
+@keyframes logoEntry{
 
 0%{
-transform:translateY(400px) scale(0.5);
+transform:scale(.5);
 opacity:0;
 }
 
@@ -107,7 +114,7 @@ opacity:1;
 }
 
 100%{
-transform:translateY(-40px) scale(1);
+transform:scale(1);
 opacity:1;
 }
 
@@ -120,57 +127,18 @@ visibility:hidden;
 }
 }
 
-/* COHETE FLOTANTE */
-
-.rocket{
-position:absolute;
-bottom:-100px;
-right:10px;
-font-size:75px;
-animation:rocketFly 12s linear infinite;
-filter:drop-shadow(0 0 20px #00a2ff);
-}
-
-@keyframes rocketFly{
-
-0%{
-transform:
-translateY(0)
-rotate(-10deg);
-opacity:0;
-}
-
-10%{
-opacity:1;
-}
-
-50%{
-transform:
-translateY(-500px)
-rotate(5deg);
-}
-
-100%{
-transform:
-translateY(-1200px)
-rotate(10deg);
-opacity:0;
-}
-
-}
-
 /* APP */
 
 .app{
 width:100%;
 max-width:430px;
 height:100vh;
-background:rgba(18,0,0,0.94);
-backdrop-filter:blur(12px);
+background:rgba(5,8,14,0.96);
+backdrop-filter:blur(15px);
 overflow:hidden;
 position:relative;
-border-left:1px solid rgba(255,0,0,0.2);
-border-right:1px solid rgba(255,0,0,0.2);
+border-left:1px solid rgba(80,130,255,.18);
+border-right:1px solid rgba(80,130,255,.18);
 }
 
 .screen{
@@ -198,15 +166,18 @@ margin-bottom:35px;
 
 .logo h1{
 font-size:42px;
-color:#33bbff;
-text-shadow:0 0 25px #00a2ff;
+color:#fff;
+text-shadow:
+0 0 15px #397bff,
+0 0 35px rgba(57,123,255,.6);
+letter-spacing:3px;
 }
 
 .logo p{
-margin-top:10px;
-color:#bbb;
+margin-top:12px;
+color:#aaa;
 font-size:13px;
-line-height:1.5;
+line-height:1.6;
 }
 
 .input-group{
@@ -226,51 +197,55 @@ width:100%;
 padding:16px;
 border:none;
 border-radius:16px;
-background:#071a33;
+background:#0a101c;
 color:white;
 font-size:15px;
-border:1px solid #2a6ec8;
+border:1px solid #1d355c;
 outline:none;
 }
 
 .input-group input:focus{
-border:1px solid #00a2ff;
-box-shadow:0 0 12px rgba(255,0,0,0.4);
+border:1px solid #397bff;
+box-shadow:0 0 15px rgba(57,123,255,.25);
 }
 
 .btn{
-box-shadow:0 0 20px rgba(0,162,255,.45), inset 0 1px 0 rgba(255,255,255,.35);
+box-shadow:
+0 0 20px rgba(57,123,255,.3),
+inset 0 1px 0 rgba(255,255,255,.25);
 
 width:100%;
 padding:16px;
 border:none;
 border-radius:16px;
+
 background:linear-gradient(
 90deg,
-#00a2ff,
-#005bbb
+#397bff,
+#1749a8
 );
+
 color:white;
 font-size:15px;
 font-weight:bold;
 cursor:pointer;
-transition:0.3s;
+transition:.3s;
 margin-top:10px;
 }
 
 .btn:hover{
 transform:scale(1.02);
-box-shadow:0 0 20px rgba(255,0,0,0.5);
+box-shadow:0 0 25px rgba(57,123,255,.5);
 }
 
 .switch{
 margin-top:20px;
 text-align:center;
-color:#aaa;
+color:#888;
 }
 
 .switch span{
-color:#ff2b2b;
+color:#6ea0ff;
 font-weight:bold;
 cursor:pointer;
 }
@@ -282,8 +257,10 @@ padding:16px;
 display:flex;
 justify-content:space-between;
 align-items:center;
-border-bottom:1px solid #1a4d8f;
-background:#06152b;
+
+border-bottom:1px solid #172b4c;
+
+background:#080d16;
 }
 
 .user-box{
@@ -296,14 +273,19 @@ gap:10px;
 width:50px;
 height:50px;
 border-radius:50%;
-background:#00a2ff;
+
+background:
+linear-gradient(135deg,#397bff,#101827);
+
 display:flex;
 justify-content:center;
 align-items:center;
+
 font-weight:bold;
 color:white;
 font-size:18px;
-box-shadow:0 0 20px rgba(255,0,0,0.5);
+
+box-shadow:0 0 20px rgba(57,123,255,.4);
 }
 
 .user-info{
@@ -313,7 +295,7 @@ gap:3px;
 }
 
 .user-info small{
-color:#aaa;
+color:#777;
 font-size:11px;
 }
 
@@ -329,16 +311,22 @@ padding-bottom:110px;
 /* BANNERS */
 
 .banner{
-background:linear-gradient(
+background:
+linear-gradient(
 90deg,
-#1d0000,
-#0b3d91
+#09101c,
+#102b5d
 );
+
 padding:18px;
 border-radius:20px;
-border:1px solid #33bbff;
+
+border:1px solid #244b89;
+
 margin-bottom:15px;
-box-shadow:0 0 20px rgba(255,0,0,0.15);
+
+box-shadow:
+0 0 20px rgba(57,123,255,.08);
 }
 
 .banner h2{
@@ -349,66 +337,82 @@ margin-bottom:8px;
 .banner p{
 font-size:13px;
 line-height:1.5;
-color:#ddd;
+color:#bbb;
 }
 
 /* CARD */
 
 .card,
 .plan{
-background:#081a38;
+
+background:
+linear-gradient(
+145deg,
+rgba(14,22,36,.96),
+rgba(7,11,18,.96)
+);
+
 border-radius:20px;
+
 padding:18px;
 margin-bottom:15px;
-border:1px solid #225ea8;
-box-shadow:0 0 10px rgba(255,0,0,0.08);
+
+border:1px solid #1b345b;
+
+box-shadow:
+0 0 15px rgba(0,0,0,.3);
 }
 
 .plan{
 display:flex;
 justify-content:space-between;
 align-items:center;
-transition:0.3s;
+transition:.3s;
 }
 
 .plan:hover{
 transform:translateY(-4px);
-box-shadow:0 0 20px rgba(255,0,0,0.25);
+box-shadow:
+0 0 25px rgba(57,123,255,.18);
 }
 
 .plan-title{
-font-size:20px;
+font-size:18px;
 font-weight:bold;
 }
 
 .plan-profit{
 font-size:13px;
-color:#00ff84;
-margin-top:4px;
+color:#69a0ff;
+margin-top:5px;
 }
 
 .buy-btn{
-box-shadow:0 0 18px rgba(0,162,255,.5);
 
 padding:12px 14px;
 border:none;
 border-radius:14px;
-background:#00a2ff;
+
+background:#397bff;
+
 color:white;
 font-weight:bold;
 cursor:pointer;
-transition:0.3s;
+transition:.3s;
+
+box-shadow:
+0 0 18px rgba(57,123,255,.35);
 }
 
 .buy-btn:hover{
-background:#ff2b2b;
+background:#5d94ff;
 }
 
 .balance{
 font-size:35px;
 font-weight:bold;
 margin-top:10px;
-color:#00ff84;
+color:#6ea0ff;
 }
 
 /* ACTIONS */
@@ -421,137 +425,222 @@ margin-top:15px;
 }
 
 .action-btn{
+
 padding:15px;
 border:none;
 border-radius:16px;
-background:#0d2b57;
+
+background:#0d1727;
+
 color:white;
 font-weight:bold;
 cursor:pointer;
-transition:0.3s;
-border:1px solid #225ea8;
+transition:.3s;
+
+border:1px solid #1d3c6c;
 }
 
 .action-btn:hover{
-background:#00a2ff;
+background:#397bff;
 }
 
 /* MENU */
 
 .bottom{
+
 position:absolute;
 bottom:15px;
 left:50%;
 transform:translateX(-50%);
+
 width:92%;
+
 display:flex;
 justify-content:space-around;
-background:rgba(22,0,0,0.95);
+
+background:rgba(6,10,17,.96);
+
 padding:12px;
+
 border-radius:25px;
-border:1px solid #225ea8;
+
+border:1px solid #1c365d;
+
+backdrop-filter:blur(15px);
 }
 
 .nav{
+
 flex:1;
 margin:0 5px;
+
 padding:14px;
+
 border:none;
 border-radius:18px;
-background:#0a1f40;
-color:#aaa;
+
+background:#0b1422;
+
+color:#777;
+
 font-size:13px;
 font-weight:bold;
+
 cursor:pointer;
 }
 
 .nav.active{
-background:linear-gradient(
+
+background:
+linear-gradient(
 90deg,
-#00a2ff,
-#004a99
+#397bff,
+#1749a8
 );
+
 color:white;
 }
 
 /* TOAST */
 
 .toast{
+
 position:fixed;
 bottom:120px;
 left:50%;
+
 transform:translateX(-50%);
-background:#00a2ff;
+
+background:#397bff;
+
 color:white;
+
 padding:14px 20px;
+
 border-radius:14px;
+
 font-weight:bold;
+
 display:none;
+
 z-index:999;
 }
 
 /* HISTORIAL */
 
 .history-item{
+
 padding:12px;
-background:#110707;
+
+background:#080e18;
+
 border-radius:12px;
+
 margin-bottom:10px;
-border:1px solid #1a4d8f;
+
+border:1px solid #172b4c;
+
 font-size:13px;
 }
 
 /* LIVE */
 
 .live-box{
-height:220px;
+height:260px;
 overflow:hidden;
 }
 
 .live-item{
+
 padding:10px;
-background:#110707;
+
+background:#080e18;
+
 border-radius:10px;
+
 margin-bottom:8px;
+
 font-size:13px;
-border:1px solid #1a4d8f;
+
+border:1px solid #172b4c;
+}
+
+/* GRAPH */
+
+.graph-box{
+
+height:220px;
+
+background:#050912;
+
+border-radius:16px;
+
+border:1px solid #1a3154;
+
+padding:10px;
+
+overflow:hidden;
+}
+
+canvas{
+width:100%;
+height:100%;
 }
 
 /* SUPPORT */
 
 .support-box{
-background:#0a1f40;
+
+background:#0a1423;
+
 padding:15px;
+
 border-radius:18px;
-border:1px solid #2a6ec8;
+
+border:1px solid #1d3c6c;
+
 margin-top:15px;
 }
 
 .support-box p{
+
 font-size:13px;
+
 line-height:1.6;
-color:#ddd;
+
+color:#aaa;
 }
 
 /* TERMS */
 
 .terms{
-background:#081a38;
+
+background:#08111e;
+
 padding:15px;
+
 border-radius:18px;
+
 margin-top:15px;
-border:1px solid #225ea8;
+
+border:1px solid #1a3154;
+
 font-size:12px;
+
 line-height:1.7;
-color:#bbb;
+
+color:#999;
 }
 
 .terms h3{
+
 margin-bottom:10px;
-color:#ff2b2b;
+
+color:#6ea0ff;
 }
 
 </style>
+
 </head>
 
 <body>
@@ -560,14 +649,16 @@ color:#ff2b2b;
 
 <div id="splash">
 
-<div class="bigRocket">
-🚀
+<div class="bigLogo">
+NYX
 </div>
 
-<h1>NEURASPACEX</h1>
+<h1>
+NYX TECHNOLOGIES
+</h1>
 
 <p>
-Cargando plataforma espacial...
+Building technology for the next generation...
 </p>
 
 </div>
@@ -577,10 +668,6 @@ Cargando plataforma espacial...
 <div class="space-bg">
 
 <div class="stars"></div>
-
-<div class="rocket">
-🚀
-</div>
 
 </div>
 
@@ -598,34 +685,73 @@ Cargando plataforma espacial...
 
 <div class="logo">
 
-<h1>NEURASPACEX</h1>
+<h1>
+NYX
+</h1>
 
 <p>
-Bienvenido a la plataforma tecnológica espacial de nueva generación.  Revolución de la tecnología aeroespacial con la misión final de hacer que la vida sea multiplanetaria y reducir los costos de los viajes espaciales
-Más de 107 mil usuarios registrados. PERU, CHILE, COLOMBIA, MÉXICO, GUATEMALA, ESTADOS UNIDOS, ARGENTINA, BOLIVIA, ECUADOR, FRANCIA 🚀
+
+Bienvenido a <b>NYX Technologies Inc.</b>.
+
+Una empresa tecnológica enfocada en desarrollar
+software, hardware, sistemas inteligentes,
+electrónica y nuevas generaciones de dispositivos.
+
+Nuestra visión es construir tecnología capaz
+de transformar la manera en que las personas
+interactúan con el mundo digital y físico.
+
+<br><br>
+
+<b>Technology for the next generation.</b>
+
 </p>
 
 </div>
 
 <div class="input-group">
-<label>Correo</label>
-<input type="email" id="loginEmail">
+
+<label>
+Correo
+</label>
+
+<input
+type="email"
+id="loginEmail"
+>
+
 </div>
 
 <div class="input-group">
-<label>Contraseña</label>
-<input type="password" id="loginPass">
+
+<label>
+Contraseña
+</label>
+
+<input
+type="password"
+id="loginPass"
+>
+
 </div>
 
-<button class="btn" onclick="login()">
+<button
+class="btn"
+onclick="login()"
+>
+
 INGRESAR
+
 </button>
 
 <div class="switch">
+
 ¿No tienes cuenta?
+
 <span onclick="showRegister()">
 Registrarse aquí
 </span>
+
 </div>
 
 </div>
@@ -636,48 +762,98 @@ Registrarse aquí
 
 <div class="logo">
 
-<h1>CREAR CUENTA</h1>
+<h1>
+CREAR CUENTA
+</h1>
 
 <p>
-🎁 Bono de bienvenida $10.00
+Únete al ecosistema tecnológico de NYX.
 </p>
 
 </div>
 
 <div class="input-group">
-<label>Nombres</label>
-<input type="text" id="registerNombre">
+
+<label>
+Nombres
+</label>
+
+<input
+type="text"
+id="registerNombre"
+>
+
 </div>
 
 <div class="input-group">
-<label>Apellidos</label>
-<input type="text" id="registerApellido">
+
+<label>
+Apellidos
+</label>
+
+<input
+type="text"
+id="registerApellido"
+>
+
 </div>
 
 <div class="input-group">
-<label>Teléfono +51</label>
-<input type="number" id="registerTelefono">
+
+<label>
+Teléfono
+</label>
+
+<input
+type="number"
+id="registerTelefono"
+>
+
 </div>
 
 <div class="input-group">
-<label>Correo</label>
-<input type="email" id="registerEmail">
+
+<label>
+Correo
+</label>
+
+<input
+type="email"
+id="registerEmail"
+>
+
 </div>
 
 <div class="input-group">
-<label>Contraseña</label>
-<input type="password" id="registerPass">
+
+<label>
+Contraseña
+</label>
+
+<input
+type="password"
+id="registerPass"
+>
+
 </div>
 
-<button class="btn" onclick="register()">
-REGISTRARSE
+<button
+class="btn"
+onclick="register()"
+>
+
+CREAR CUENTA
+
 </button>
 
 <div class="switch">
+
 ¿Ya tienes cuenta?
+
 <span onclick="showLogin()">
 Iniciar sesión
 </span>
+
 </div>
 
 </div>
@@ -701,11 +877,11 @@ Usuario
 </b>
 
 <small id="userID">
-ID: NSX54845
+ID: NYX000000
 </small>
 
 <small id="userIQ">
-IQ: 2545842
+SYSTEM: ACTIVE
 </small>
 
 </div>
@@ -714,13 +890,15 @@ IQ: 2545842
 
 <div>
 
-<div style="font-size:12px;color:#aaa;">
-Saldo
+<div style="font-size:12px;color:#777;">
+Estado
 </div>
 
-<div id="topBalance"
-style="font-weight:bold;color:#00ff84;">
-$10.00
+<div
+id="topBalance"
+style="font-weight:bold;color:#69a0ff;"
+>
+ONLINE
 </div>
 
 </div>
@@ -729,114 +907,178 @@ $10.00
 
 <div class="content">
 
-<!-- BANNERS -->
+<!-- PRESENTACIÓN -->
 
 <div class="banner">
-<h2>🚀 Lanzamiento Oficial</h2>
+
+<h2>
+⚡ NYX Technologies Inc.
+</h2>
+
 <p>
-Aplicación ya disponible descargue desde su navegador
-  <b>Ya disponible NEURASPACEX</b>
+
+Empresa privada de tecnología enfocada
+en innovación, desarrollo de software,
+hardware, electrónica y dispositivos
+tecnológicos avanzados.
+
 </p>
+
 </div>
+
+<!-- VISIÓN -->
 
 <div class="banner">
-<h2>🌍 Proyecto Marte 2035-2050</h2>
+
+<h2>
+🌐 Nuestra Visión
+</h2>
+
 <p>
-NEURASPACEX desarrolla sistemas tecnológicos espaciales y expansión interplanetaria. Nuestra misión es desarrollar misiones científicas de alto impacto para posicionar la tecnología de la región en la industria global e inspirar a las nuevas generaciones.
+
+Construir tecnologías que conecten
+software, hardware e inteligencia
+computacional para crear productos
+de nueva generación.
+
 </p>
+
 </div>
 
-<div class="banner">
-<h2>🛡 Plataforma Regulada</h2>
-<p>
-Empresa registrada bajo regulación SEC/FINRA en EE.UU., FCA Reino Unido y CySEC Europa. CEO Y FUNDADOR: JEFF MICHELLE ALEX. CO-FUNDADOR: ZUCKE ALE WALKER. DIRECTORA: JORCH LEVIN DAYE
-</p>
-</div>
-
-<!-- PLANES -->
+<!-- PROYECTOS -->
 
 <div id="plansTab">
-
-<div class="plan">
-<div>
-<div class="plan-title">
-VIP 0 - S/ 1,000.00 SOLES
-</div>
-<div class="plan-profit">
-Ganancia diaria S/70.50
-</div>
-</div>
-
-<button class="buy-btn"
-onclick="comprarPlan(500,'VIP 0')">
-Comprar
-</button>
-
-</div>
-
-<div class="plan">
-
-<div>
-<div class="plan-title">
-VIP 1 - S/1,520.00 soles
-</div>
-
-<div class="plan-profit">
-Ganancia diaria S/85.70 Soles
-</div>
-</div>
-
-<button class="buy-btn"
-onclick="comprarPlan(750,'VIP 1')">
-Comprar
-</button>
-
-</div>
-
-<div class="plan">
-
-<div>
-<div class="plan-title">
-VIP 2 - $500.00 USD
-</div>
-
-<div class="plan-profit">
-Ganancia diaria $48.70 USD
-</div>
-</div>
-
-<button class="buy-btn"
-onclick="comprarPlan(1000,'VIP 2')">
-Comprar
-</button>
-
-</div>
-
-<div class="plan">
-
-<div>
-<div class="plan-title">
-VIP 3 - $550.00 USD
-</div>
-
-<div class="plan-profit">
-Ganancia diaria $74.70 USD
-</div>
-</div>
-
-<button class="buy-btn"
-onclick="comprarPlan(1500,'VIP 3')">
-Comprar
-</button>
-
-</div>
-
-<!-- LIVE -->
 
 <div class="card">
 
 <h2>
-📡 Actividad Global
+🚀 NYX Technology Roadmap
+</h2>
+
+<br>
+
+<div class="plan">
+
+<div>
+
+<div class="plan-title">
+NYX Software
+</div>
+
+<div class="plan-profit">
+Plataformas y sistemas digitales
+</div>
+
+</div>
+
+<button
+class="buy-btn"
+onclick="abrirProyecto('Software')"
+>
+Ver
+</button>
+
+</div>
+
+<div class="plan">
+
+<div>
+
+<div class="plan-title">
+NYX Hardware
+</div>
+
+<div class="plan-profit">
+Diseño y desarrollo de hardware
+</div>
+
+</div>
+
+<button
+class="buy-btn"
+onclick="abrirProyecto('Hardware')"
+>
+Ver
+</button>
+
+</div>
+
+<div class="plan">
+
+<div>
+
+<div class="plan-title">
+NYX Devices
+</div>
+
+<div class="plan-profit">
+Dispositivos tecnológicos avanzados
+</div>
+
+</div>
+
+<button
+class="buy-btn"
+onclick="abrirProyecto('Devices')"
+>
+Ver
+</button>
+
+</div>
+
+<div class="plan">
+
+<div>
+
+<div class="plan-title">
+NYX Research
+</div>
+
+<div class="plan-profit">
+Investigación y desarrollo tecnológico
+</div>
+
+</div>
+
+<button
+class="buy-btn"
+onclick="abrirProyecto('Research')"
+>
+Ver
+</button>
+
+</div>
+
+</div>
+
+<!-- GRÁFICO -->
+
+<div class="card">
+
+<h2>
+📊 NYX Technology Monitor
+</h2>
+
+<br>
+
+<p style="color:#777;font-size:12px;margin-bottom:10px;">
+Datos visuales simulados para demostración.
+</p>
+
+<div class="graph-box">
+
+<canvas id="nyxChart"></canvas>
+
+</div>
+
+</div>
+
+<!-- ACTIVIDAD -->
+
+<div class="card">
+
+<h2>
+📡 NYX Tech Live
 </h2>
 
 <br>
@@ -844,188 +1086,223 @@ Comprar
 <div class="live-box" id="liveBox">
 
 <div class="live-item">
-🚀 USUARIO ACTIVO
+⚡ Sistema NYX operativo
 </div>
 
 <div class="live-item">
-💸 Depósitos inmediatos mediante USDT o BANCO
+💻 Desarrollo de software activo
 </div>
 
 <div class="live-item">
-🏦 Retiros en 1 hora. RECOMPENSA GARANTIZADA
+🔧 Investigación de hardware en progreso
 </div>
 
 <div class="live-item">
-👥 15% POR CADA INVITADO - 3% POR CADA DIA DE GANANCIA, Se acredita automáticamente en el sistema
+📱 Conceptos de dispositivos en desarrollo
 </div>
 
 <div class="live-item">
-🚀 1,095.00 días hasta renovar
+🌐 Ecosistema tecnológico conectado
+</div>
+
+<div class="live-item">
+🧪 Prototipos y pruebas de laboratorio
 </div>
 
 </div>
 
 </div>
 
-<!-- TÉRMINOS -->
+<!-- ROADMAP -->
+
+<div class="card">
+
+<h2>
+🛰 Roadmap tecnológico
+</h2>
+
+<br>
+
+<div class="history-item">
+2026 — Plataforma tecnológica NYX
+</div>
+
+<div class="history-item">
+2027 — Expansión de software y servicios
+</div>
+
+<div class="history-item">
+2028 — Investigación avanzada de hardware
+</div>
+
+<div class="history-item">
+2029 — Prototipos de dispositivos
+</div>
+
+<div class="history-item">
+2030+ — Nueva generación de productos NYX
+</div>
+
+</div>
+
+<!-- INFORMACIÓN -->
 
 <div class="terms">
 
 <h3>
-📜 Términos y Condiciones
+🏢 Sobre NYX Technologies Inc.
 </h3>
 
 <p>
-• Los retiros están habilitados todos los días 24/7, no se le pide ningún requisito para solicitar el retiro, la empresa es totalmente transparente. Solicite el retiro y la cantidad que desea, en cualquier momento.
+
+<b>Nombre:</b>
+NYX Technologies Inc.
+
 </p>
 
 <p>
-• El retiro mínimo permitido es de S/ 50 soles a su billetera, no se le pedirá ninguna activación o depósito para retiro.
+
+<b>Tipo:</b>
+Empresa privada de tecnología.
+
 </p>
 
 <p>
-• Los depósitos son verificados automáticamente por el sistema.
+
+<b>Enfoque:</b>
+Software, hardware, electrónica,
+innovación y dispositivos tecnológicos.
+
 </p>
 
 <p>
-• Toda actividad sospechosa puede ser revisada por seguridad.
+
+<b>Visión:</b>
+Technology for the next generation.
+
 </p>
 
 <p>
-• La empresa se reserva el derecho de suspender cuentas fraudulentas.
-</p>
 
-<p>
-• Los usuarios deben proteger sus credenciales de acceso.
+NYX busca desarrollar tecnología
+propia a largo plazo combinando
+investigación, ingeniería, diseño
+y desarrollo de productos.
+
 </p>
 
 </div>
 
 </div>
 
-<!-- WALLET -->
+<!-- WALLET / CENTRO -->
 
-<div id="walletTab" style="display:none;">
+<div
+id="walletTab"
+style="display:none;"
+>
 
 <div class="card">
 
-<div style="color:#aaa;">
-Saldo Disponible
+<h2>
+🧠 NYX Technology Center
+</h2>
+
+<br>
+
+<div style="color:#777;">
+Estado del ecosistema
 </div>
 
-<div class="balance" id="balance">
-$10.00
+<div class="balance">
+ACTIVE
 </div>
 
 <div class="wallet-actions">
 
-<button class="action-btn"
-onclick="abrirDeposito()">
-💸 Depositar
+<button
+class="action-btn"
+onclick="mostrarProyectos()"
+>
+🚀 Proyectos
 </button>
 
-<button class="action-btn"
-onclick="mostrarRetiro()">
-🏦 Retirar
+<button
+class="action-btn"
+onclick="mostrarInvestigacion()"
+>
+🔬 Investigación
 </button>
 
 </div>
 
 </div>
 
-<!-- DEPOSITO -->
+<!-- PROYECTOS -->
 
-<div class="card"
-id="depositBox"
-style="display:none;">
+<div
+class="card"
+id="projectBox"
+style="display:none;"
+>
 
 <h2>
-💸 Realizar Depósito
+🚀 Proyectos NYX
 </h2>
 
 <br>
 
-<div class="input-group">
-<label>Monto</label>
-<input type="number" id="depositMonto">
+<div class="history-item">
+⚡ NYX Core — Infraestructura tecnológica
 </div>
 
-<div class="input-group">
-<label>Red</label>
-
-<select>
-<option>TRC20</option>
-<option>BEP20</option>
-</select>
-
+<div class="history-item">
+💻 NYX OS — Concepto de plataforma
 </div>
 
-<div style="
-background:#06152b;
-padding:14px;
-border-radius:14px;
-word-break:break-all;
-border:1px solid #00a2ff;
-font-size:13px;
-">
+<div class="history-item">
+📱 NYX Devices — Investigación de dispositivos
+</div>
 
-TB1vZrQ5RFKTsfZc3VeckfPxf4tS6pAhF5
+<div class="history-item">
+🔧 NYX Hardware — Ingeniería de hardware
+</div>
 
 </div>
 
-<button class="btn"
-onclick="copiarWallet()">
-COPIAR WALLET
-</button>
+<!-- INVESTIGACIÓN -->
 
-<button class="btn"
-onclick="confirmarDeposito()">
-CONFIRMAR DEPÓSITO
-</button>
-
-</div>
-
-<!-- REFERIDOS -->
-
-<div class="card">
+<div
+class="card"
+id="researchBox"
+style="display:none;"
+>
 
 <h2>
-👥 Referidos 15%
+🔬 NYX Research
 </h2>
 
 <br>
 
-<div id="refLink"
-style="
-background:#06152b;
-padding:14px;
-border-radius:14px;
-word-break:break-all;
-border:1px solid #00a2ff;
-font-size:12px;
-">
+<div class="history-item">
+🧠 Sistemas computacionales
 </div>
 
-<br>
-
-<div style="
-background:#06152b;
-padding:14px;
-border-radius:14px;
-border:1px solid #00ff84;
-">
-
-Ganancias:
-<b id="refGanancias">
-S/ 0.00
-</b>
-
+<div class="history-item">
+⚙️ Arquitectura de hardware
 </div>
 
-<button class="btn"
-onclick="copiarReferido()">
-COPIAR LINK
-</button>
+<div class="history-item">
+🔋 Tecnología energética
+</div>
+
+<div class="history-item">
+📡 Conectividad avanzada
+</div>
+
+<div class="history-item">
+🛰 Sistemas autónomos
+</div>
 
 </div>
 
@@ -1034,69 +1311,18 @@ COPIAR LINK
 <div class="card">
 
 <h2>
-📜 Historial
+📜 Actividad
 </h2>
 
 <br>
 
 <div id="historial">
 
-<p style="color:#777;">
-Sin movimientos todavía
+<p style="color:#666;">
+Sin actividad reciente
 </p>
 
 </div>
-
-</div>
-
-<!-- RETIRO -->
-
-<div class="card"
-id="withdrawForm"
-style="display:none;">
-
-<h2>
-🏦 Solicitud de Retiro
-</h2>
-
-<br>
-
-<div class="input-group">
-<label>Nombre Completo</label>
-<input type="text" id="nombreRetiro">
-</div>
-
-<div class="input-group">
-<label>DNI</label>
-<input type="number" id="dniRetiro">
-</div>
-
-<div class="input-group">
-<label>Banco</label>
-
-<select>
-<option>BCP</option>
-<option>BBVA</option>
-<option>Interbank</option>
-<option>Scotiabank</option>
-</select>
-
-</div>
-
-<div class="input-group">
-<label>Número de Cuenta</label>
-<input type="number" id="cuentaRetiro">
-</div>
-
-<div class="input-group">
-<label>Monto</label>
-<input type="number" id="montoRetiro">
-</div>
-
-<button class="btn"
-onclick="procesarRetiro()">
-CONFIRMAR RETIRO
-</button>
 
 </div>
 
@@ -1105,25 +1331,25 @@ CONFIRMAR RETIRO
 <div class="support-box">
 
 <h2>
-🛟 Soporte 24/7
+🛟 NYX Support
 </h2>
 
 <br>
 
 <p>
-📩 soporte@neuraspacex.com
+📩 support@nyxtechnologies.com
 </p>
 
 <p>
-📞 Atención global disponible +01 (65845) 58452
+🌐 NYX Technologies Inc.
 </p>
 
 <p>
-🛰 Sistema de monitoreo automático activo
+⚡ Technology infrastructure active
 </p>
 
 <p>
-🔒 Seguridad avanzada y cifrado de datos
+🔒 Sistemas diseñados con enfoque en seguridad
 </p>
 
 </div>
@@ -1132,13 +1358,15 @@ CONFIRMAR RETIRO
 
 <!-- PERFIL -->
 
-<div id="profileTab"
-style="display:none;">
+<div
+id="profileTab"
+style="display:none;"
+>
 
 <div class="card">
 
 <h2>
-👤 Perfil
+👤 Perfil NYX
 </h2>
 
 <br>
@@ -1176,6 +1404,38 @@ ID:
 <b id="perfilID"></b>
 </p>
 
+<br>
+
+<p>
+Estado:
+<b style="color:#69a0ff;">
+NYX MEMBER
+</b>
+</p>
+
+</div>
+
+<div class="card">
+
+<h2>
+💡 Sobre el equipo
+</h2>
+
+<br>
+
+<p style="color:#aaa;font-size:13px;line-height:1.6;">
+
+NYX Technologies trabaja en la creación
+de conceptos tecnológicos que combinan
+ingeniería, diseño, software y hardware.
+
+El objetivo a largo plazo es desarrollar
+productos y dispositivos propios capaces
+de formar parte de un nuevo ecosistema
+tecnológico.
+
+</p>
+
 </div>
 
 </div>
@@ -1186,18 +1446,24 @@ ID:
 
 <div class="bottom">
 
-<button class="nav active"
-onclick="showTab('plansTab',this)">
-🚀 Planes
+<button
+class="nav active"
+onclick="showTab('plansTab',this)"
+>
+⚡ NYX
 </button>
 
-<button class="nav"
-onclick="showTab('walletTab',this)">
-💳 Wallet
+<button
+class="nav"
+onclick="showTab('walletTab',this)"
+>
+🧠 Tech
 </button>
 
-<button class="nav"
-onclick="showTab('profileTab',this)">
+<button
+class="nav"
+onclick="showTab('profileTab',this)"
+>
 👤 Perfil
 </button>
 
@@ -1209,9 +1475,9 @@ onclick="showTab('profileTab',this)">
 
 <script>
 
-let saldo = 20;
 let historial = [];
-let gananciasReferidos = 0;
+
+/* TOAST */
 
 function toast(msg){
 
@@ -1223,89 +1489,59 @@ t.innerText = msg;
 t.style.display = "block";
 
 setTimeout(()=>{
+
 t.style.display = "none";
+
 },2500);
 
 }
 
-function actualizarSaldo(){
-
-document.getElementById("balance")
-.innerText =
-"S/ " + saldo.toFixed(2);
-
-document.getElementById("topBalance")
-.innerText =
-"S/ " + saldo.toFixed(2);
-
-document.getElementById("refGanancias")
-.innerText =
-"S/ " +
-gananciasReferidos.toFixed(2);
-
-}
-
-function actualizarHistorial(){
-
-const div =
-document.getElementById("historial");
-
-if(historial.length === 0){
-
-div.innerHTML =
-'<p style="color:#777;">Sin movimientos todavía</p>';
-
-return;
-
-}
-
-div.innerHTML = "";
-
-historial.forEach(item=>{
-
-div.innerHTML += `
-<div class="history-item">
-${item}
-</div>
-`;
-
-});
-
-}
+/* ID */
 
 function generarID(){
 
-return "NSX" +
+return "NYX" +
 Math.floor(
-10000000 + Math.random()*90000000
+10000000 +
+Math.random()*90000000
 );
 
 }
 
-function generarIQ(){
+/* SYSTEM ID */
 
-return Math.floor(
-10000000 + Math.random()*90000000
+function generarSystemID(){
+
+return "SYS-" +
+Math.floor(
+100000 +
+Math.random()*900000
 );
 
 }
+
+/* REGISTER */
 
 function showRegister(){
 
-document.getElementById("loginScreen")
+document
+.getElementById("loginScreen")
 .classList.remove("active");
 
-document.getElementById("registerScreen")
+document
+.getElementById("registerScreen")
 .classList.add("active");
 
 }
 
 function showLogin(){
 
-document.getElementById("registerScreen")
+document
+.getElementById("registerScreen")
 .classList.remove("active");
 
-document.getElementById("loginScreen")
+document
+.getElementById("loginScreen")
 .classList.add("active");
 
 }
@@ -1313,58 +1549,77 @@ document.getElementById("loginScreen")
 function register(){
 
 const nombre =
-document.getElementById("registerNombre").value;
+document
+.getElementById("registerNombre")
+.value;
 
 const apellido =
-document.getElementById("registerApellido").value;
+document
+.getElementById("registerApellido")
+.value;
 
 const telefono =
-document.getElementById("registerTelefono").value;
+document
+.getElementById("registerTelefono")
+.value;
 
 const email =
-document.getElementById("registerEmail").value;
+document
+.getElementById("registerEmail")
+.value;
 
 const pass =
-document.getElementById("registerPass").value;
+document
+.getElementById("registerPass")
+.value;
 
 if(
 nombre===""||
 apellido===""||
 telefono===""||
 email===""||
-pass===""){
+pass===""
+){
 
 toast("Completa todos los campos");
+
 return;
 
 }
 
 localStorage.setItem(
-"userNombre",nombre
+"userNombre",
+nombre
 );
 
 localStorage.setItem(
-"userApellido",apellido
+"userApellido",
+apellido
 );
 
 localStorage.setItem(
-"userTelefono",telefono
+"userTelefono",
+telefono
 );
 
 localStorage.setItem(
-"userEmail",email
+"userEmail",
+email
 );
 
 localStorage.setItem(
-"userPass",pass
+"userPass",
+pass
 );
 
 localStorage.setItem(
-"userID",generarID()
+"userID",
+generarID()
 );
 
 localStorage.setItem(
-"userIQ",generarIQ()
+"userIQ",
+generarSystemID()
 );
 
 toast("Cuenta creada 🚀");
@@ -1373,13 +1628,19 @@ showLogin();
 
 }
 
+/* LOGIN */
+
 function login(){
 
 const email =
-document.getElementById("loginEmail").value;
+document
+.getElementById("loginEmail")
+.value;
 
 const pass =
-document.getElementById("loginPass").value;
+document
+.getElementById("loginPass")
+.value;
 
 if(
 email ===
@@ -1389,59 +1650,64 @@ pass ===
 localStorage.getItem("userPass")
 ){
 
-document.getElementById("loginScreen")
+document
+.getElementById("loginScreen")
 .classList.remove("active");
 
-document.getElementById("dashboard")
+document
+.getElementById("dashboard")
 .classList.add("active");
 
-document.getElementById("username")
+document
+.getElementById("username")
 .innerText =
 localStorage.getItem("userNombre");
 
-document.getElementById("avatar")
+document
+.getElementById("avatar")
 .innerText =
 localStorage
 .getItem("userNombre")
-.charAt(0);
+.charAt(0)
+.toUpperCase();
 
-document.getElementById("userID")
+document
+.getElementById("userID")
 .innerText =
 "ID: " +
 localStorage.getItem("userID");
 
-document.getElementById("userIQ")
+document
+.getElementById("userIQ")
 .innerText =
-"IQ: " +
 localStorage.getItem("userIQ");
 
-document.getElementById("perfilNombre")
+document
+.getElementById("perfilNombre")
 .innerText =
 localStorage.getItem("userNombre");
 
-document.getElementById("perfilApellido")
+document
+.getElementById("perfilApellido")
 .innerText =
 localStorage.getItem("userApellido");
 
-document.getElementById("perfilTelefono")
+document
+.getElementById("perfilTelefono")
 .innerText =
 localStorage.getItem("userTelefono");
 
-document.getElementById("correoPerfil")
+document
+.getElementById("correoPerfil")
 .innerText =
 localStorage.getItem("userEmail");
 
-document.getElementById("perfilID")
+document
+.getElementById("perfilID")
 .innerText =
 localStorage.getItem("userID");
 
-document.getElementById("refLink")
-.innerText =
-window.location.href +
-"?ref=" +
-localStorage.getItem("userID");
-
-toast("Bienvenido 🚀");
+toast("Bienvenido a NYX ⚡");
 
 }else{
 
@@ -1451,182 +1717,244 @@ toast("Datos incorrectos");
 
 }
 
+/* TABS */
+
 function showTab(id,btn){
 
-document.getElementById("plansTab")
-.style.display = "none";
+document
+.getElementById("plansTab")
+.style.display="none";
 
-document.getElementById("walletTab")
-.style.display = "none";
+document
+.getElementById("walletTab")
+.style.display="none";
 
-document.getElementById("profileTab")
-.style.display = "none";
+document
+.getElementById("profileTab")
+.style.display="none";
 
-document.getElementById(id)
-.style.display = "block";
+document
+.getElementById(id)
+.style.display="block";
 
-document.querySelectorAll(".nav")
+document
+.querySelectorAll(".nav")
 .forEach(n=>{
+
 n.classList.remove("active");
+
 });
 
 btn.classList.add("active");
 
 }
 
-function abrirDeposito(){
+/* PROJECT */
 
-document.getElementById("depositBox")
-.style.display = "block";
-
-}
-
-function confirmarDeposito(){
-
-const monto =
-parseFloat(
-document.getElementById("depositMonto")
-.value
-);
-
-if(
-isNaN(monto)
-||
-monto <= 0
-){
-
-toast("Monto inválido");
-return;
-
-}
-
-saldo += monto;
-
-const comision =
-monto * 0.15;
-
-gananciasReferidos += comision;
-
-actualizarSaldo();
+function abrirProyecto(nombre){
 
 historial.unshift(
-`💸 Depósito +S/ ${monto.toFixed(2)}`
-);
-
-historial.unshift(
-`👥 Comisión 15% +S/ ${comision.toFixed(2)}`
+"🚀 Proyecto consultado: NYX " +
+nombre
 );
 
 actualizarHistorial();
 
-document.getElementById("depositMonto")
-.value = "";
-
-toast("Depósito realizado 🚀");
-
-}
-
-function copiarWallet(){
-
-navigator.clipboard.writeText(
-"TB1vZrQ5RFKTsfZc3VeckfPxf4tS6pAhF5"
+toast(
+"NYX " +
+nombre +
+" seleccionado"
 );
 
-toast("Wallet copiada 🚀");
+}
+
+/* PROJECT CENTER */
+
+function mostrarProyectos(){
+
+document
+.getElementById("projectBox")
+.style.display="block";
+
+document
+.getElementById("researchBox")
+.style.display="none";
+
+toast("Centro de proyectos NYX");
 
 }
 
-function copiarReferido(){
+function mostrarInvestigacion(){
 
-navigator.clipboard.writeText(
-document.getElementById("refLink")
-.innerText
-);
+document
+.getElementById("researchBox")
+.style.display="block";
 
-toast("Link copiado 🚀");
+document
+.getElementById("projectBox")
+.style.display="none";
 
-}
-
-function mostrarRetiro(){
-
-document.getElementById("withdrawForm")
-.style.display = "block";
+toast("NYX Research");
 
 }
 
-function procesarRetiro(){
+/* HISTORY */
 
-const monto =
-parseFloat(
-document.getElementById("montoRetiro")
-.value
-);
+function actualizarHistorial(){
 
-if(
-isNaN(monto)
-||
-monto <= 0
-){
+const div =
+document.getElementById("historial");
 
-toast("Monto inválido");
+if(historial.length===0){
+
+div.innerHTML =
+'<p style="color:#666;">Sin actividad reciente</p>';
+
 return;
 
 }
 
-if(monto < 50){
+div.innerHTML="";
 
-toast("Retiro mínimo S/50");
-return;
+historial
+.slice(0,8)
+.forEach(item=>{
+
+div.innerHTML += `
+
+<div class="history-item">
+
+${item}
+
+</div>
+
+`;
+
+});
 
 }
 
-if(monto > saldo){
+/* SIMULATED GRAPH */
 
-toast("Saldo insuficiente");
-return;
+function iniciarGrafico(){
 
-}
+const canvas =
+document.getElementById("nyxChart");
 
-saldo -= monto;
+if(!canvas)return;
 
-actualizarSaldo();
+const ctx =
+canvas.getContext("2d");
 
-historial.unshift(
-`🏦 Retiro -S/ ${monto.toFixed(2)}`
+let values = [];
+
+for(let i=0;i<35;i++){
+
+values.push(
+70 +
+Math.random()*30
 );
 
-actualizarHistorial();
-
-toast("Retiro enviado ✅");
-
 }
 
-function comprarPlan(precio,nombre){
+function draw(){
 
-if(saldo < precio){
+canvas.width =
+canvas.clientWidth * 2;
 
-toast("Saldo insuficiente");
-return;
+canvas.height =
+canvas.clientHeight * 2;
 
-}
+ctx.scale(2,2);
 
-saldo -= precio;
+const w =
+canvas.clientWidth;
 
-actualizarSaldo();
+const h =
+canvas.clientHeight;
 
-historial.unshift(
-`🚀 Plan comprado: ${nombre}`
+ctx.clearRect(
+0,
+0,
+w,
+h
 );
 
-actualizarHistorial();
+ctx.beginPath();
 
-toast(nombre + " activado 🚀");
+for(let i=0;i<values.length;i++){
+
+const x =
+(i/(values.length-1))*w;
+
+const y =
+h -
+(values[i]/120)*h;
+
+if(i===0){
+
+ctx.moveTo(x,y);
+
+}else{
+
+ctx.lineTo(x,y);
 
 }
 
-actualizarSaldo();
+}
+
+ctx.strokeStyle =
+"#397bff";
+
+ctx.lineWidth=2;
+
+ctx.shadowBlur=10;
+
+ctx.shadowColor =
+"#397bff";
+
+ctx.stroke();
+
+ctx.shadowBlur=0;
+
+/* AREA */
+
+ctx.lineTo(w,h);
+
+ctx.lineTo(0,h);
+
+ctx.closePath();
+
+ctx.fillStyle =
+"rgba(57,123,255,.08)";
+
+ctx.fill();
+
+values.shift();
+
+values.push(
+70 +
+Math.random()*30
+);
+
+setTimeout(draw,900);
+
+}
+
+draw();
+
+}
+
+/* SPLASH */
+
+setTimeout(()=>{
+
+iniciarGrafico();
+
+},1000);
 
 </script>
 
 </body>
 </html>
+```
